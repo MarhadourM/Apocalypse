@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Apocalypse">
         <activity
+            android:name=".Game.IntroGameView"
+            android:exported="false" />
+        <activity
             android:name=".LancerDesSensor"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
             android:excludeFromRecents="true"
             android:noHistory="true" />
         <activity
-            android:name=".ChoixView"
+            android:name=".ChoixBonusView"
             android:excludeFromRecents="true"
             android:noHistory="true" />
     </application>

@@ -61,6 +61,14 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
 
             if (devaccel>=3 && !isDeLancee){
                 //lancer de dés
+                //display Results ()
+                //Partie.lancéeDesFait()
+                /*TODO
+                * si l'etat est  action  =view action
+                * si l"etat est choix  = view choix bonux
+                * si fin de parti  = view fin de parti
+                * */
+
                 isDeLancee = true
             }
 

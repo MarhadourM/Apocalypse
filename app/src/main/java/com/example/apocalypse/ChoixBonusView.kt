@@ -9,9 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.apocalypse.Game.Joueur
-import com.example.apocalypse.Game.Partie
 
-class ChoixView : AppCompatActivity()  {
+class ChoixBonusView : AppCompatActivity()  {
 
     lateinit var ivCarteBonus1: ImageView
     lateinit var ivCarteBonus2: ImageView
@@ -22,7 +21,7 @@ class ChoixView : AppCompatActivity()  {
 
 
 
-
+//TODO organiser  cette page comme les autres
     override fun onStart() {
         super.onStart()
         updateUI()

@@ -5,8 +5,14 @@ object Partie {
 
     private val journees: ArrayList<Jour>
     private val malusjournee: Modificateur
-    private var currentJour : Jour? =null
-    private var isChoixFaitForCurrentJour : Boolean = false
+
+    private var etatJeu : EtatJeu = EtatJeu.MENU
+    private var currentJourIndex  : Int  = 0
+     lateinit var currentJour  : Jour
+     private var currentActionIndex  : Int  = 1
+    //current Action  est un Choix car il doit contenir le lancer de dés
+     lateinit var currentAction  : Choix
+
 
 
 
@@ -147,54 +153,90 @@ object Partie {
      * Mauvaise idée
      * Donc creation ClASS ENUM ETAT_PARTI (MENU,CHOIXBONUS,ACTION,LANCERDES,FINDEPARTIE)
      * ce sont les activites qui vont faire changer le curseur  pour que le jeu ne se bloque pas
-     * TODO Reflechir a comment gerer la fin d'un jour (idée : plus de Choix dans Jour)
+     * TODO Remettre en ordre les methodes
      *
      */
 
 
     fun demarrerParti() {
-        val i = 1 //i commence toujours a 1 car on considere que  il y a forcement un element dans la liste
-        while (Joueur.isDead() && journees.size != i) {
-            currentJour = journees.get(i -1)
-
-            //wait choix
-            while (!isChoixFaitForCurrentJour){
-
-            }
-
-            /*
-			 * wait le choix
-			 * 		applique le choix
-			 * boucle les  4 choix/actions
-			 * 		affichage choix
-			 * 		wait lancer de dés(lancerlesdes dans choix)
-			 * 		applique le bonus si true
-			 * 		sinon applique le malus si ca renvoie false lancer la fin de parti + break
-			 *
-			 * i++;
-			 * */
-        }
-
-
-        //TODO fin de la parti dead + victoire
+        etatJeu = EtatJeu.ONSTART
+        currentJourIndex = 0
+        currentJour = journees[0]
+        currentActionIndex = 1
+        currentAction = currentJour.getAction(currentActionIndex)
     }
 
+    fun finIntro(){
+        etatJeu = EtatJeu.CHOIXBONUS
+    }
+
+    fun choixBonusFait(){
+        etatJeu = EtatJeu.ACTION
+
+    }
+
+    //actionfinit  met à jour l'etat pour que la view sache quelle est le view suivante
+
+    private fun actionFinit() {
+        if (currentActionIndex == 4){
+            if(currentJourIndex == 3){
+                declancherFindeparti()
+            }else{
+                currentJourIndex ++
+                currentJour = journees[currentJourIndex]
+                currentActionIndex = 1
+                currentAction = currentJour.getAction(currentActionIndex)
+                //Jour suivant  = Carte bonus
+                etatJeu = EtatJeu.CHOIXBONUS
+            }
+        }else{
+            currentActionIndex++
+            currentAction = currentJour.getAction(currentActionIndex)
+            etatJeu = EtatJeu.ACTION
+        }
+    }
+
+
+
+
+
+
+    // GetCurrentAction permet au lancerDesSensor de lancer les des  la logique metiers reste dans lancéeDesFait ()
+    fun getCurrentAction(): Choix {
+        return currentAction
+    }
+
+    fun lancéeDesFait(i : Int){
+        if (i >= currentAction.getAction().getCible()){
+            currentAction.getAction().getBonus().appliquerModificateur()
+        }else{
+            currentAction.getAction().getMalus().appliquerModificateur()
+        }
+        if (etatJeu!=EtatJeu.FINPARTI){
+
+        }
+
+        actionFinit()
+
+    }
+
+    fun etatLancerDes(){
+        etatJeu = EtatJeu.LANCERDES
+    }
+
+
     fun declancherFindeparti() {
-        //affichage  du la fin
+        etatJeu = EtatJeu.FINPARTI
         Joueur.reset()
         this.reset()
     }
 
     private fun reset() {
         initParti()
+        etatJeu = EtatJeu.MENU
     }
 
-    fun getCurrentJour(): Jour = requireNotNull(currentJour) { "Jour pas initialisé !" }
-
-    fun isChoixFaitForCurrentJour(b: Boolean){
-        this.isChoixFaitForCurrentJour = b
-    }
-    fun getisChoixFaitForCurrentJour(): Boolean =this.isChoixFaitForCurrentJour
 }
+
 
 

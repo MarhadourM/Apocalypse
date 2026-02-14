@@ -26,15 +26,24 @@ class Jour {
     fun appliquerChoix(carteChoisi: Carte) {
         if(carteChoisi == cartes[0]){
             cartes[0].appliquerModificateur()
-            Partie.isChoixFaitForCurrentJour(true)
         }else{
             cartes[1].appliquerModificateur()
-            Partie.isChoixFaitForCurrentJour(true)
         }
 
     }
 
     fun getCartes(): ArrayList<Carte> {
         return cartes
+    }
+
+    fun getAction(currentActionIndex: Int): Choix {
+        when (currentActionIndex){
+            1 -> return choix1
+            2 -> return choix2
+            3 -> return choix3
+            4 -> return choix4
+        }
+
+
     }
 }

@@ -52,6 +52,7 @@ class ActionView: AppCompatActivity() {
         setTextTvChoixCarte(mode)
 
         buttonLancerDes.setOnClickListener {
+            //Partie.etatLancerDes()
             val intent = Intent(this, LancerDesSensor::class.java)
             startActivity(intent)
         }
