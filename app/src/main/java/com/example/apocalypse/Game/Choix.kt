@@ -2,7 +2,9 @@ package com.example.apocalypse.Game
 
 class Choix {
 
-
+    /* Class Choix:
+    * But:  Pour un implementation futur le joueur aura à choisir entre deux actions
+    * */
     private val action: Action
     private val d: LancerDes
 

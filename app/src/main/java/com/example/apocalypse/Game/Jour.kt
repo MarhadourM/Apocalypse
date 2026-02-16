@@ -41,9 +41,8 @@ class Jour {
             1 -> return choix1
             2 -> return choix2
             3 -> return choix3
-            4 -> return choix4
+            else ->  return choix4
         }
-
 
     }
 }

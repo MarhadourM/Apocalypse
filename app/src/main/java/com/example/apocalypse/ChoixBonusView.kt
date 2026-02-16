@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.apocalypse.Game.Joueur
+import com.example.apocalypse.Game.Jour
+import com.example.apocalypse.Game.Partie
 
 class ChoixBonusView : AppCompatActivity()  {
 
@@ -19,38 +21,6 @@ class ChoixBonusView : AppCompatActivity()  {
     lateinit var tvPtsHydra : TextView
     lateinit var tvPtsSasiete : TextView
 
-
-
-//TODO organiser  cette page comme les autres
-    override fun onStart() {
-        super.onStart()
-        updateUI()
-        displayCarte()
-    }
-
-    private fun displayCarte() {
-        //val cartes = Partie.getCurrentJour().getCartes()
-        ivCarteBonus1.setImageResource(R.drawable.ic_launcher_background) //R.drawable.cartes[0].getImageId
-        ivCarteBonus2.setImageResource(R.drawable.ic_launcher_background)
-
-        ivCarteBonus1.setOnClickListener {
-            //Partie.getCurrentJour().appliquerChoix(cartes[0])
-            startActivity(createActionIntent("Carte bonus1"))//cartes[0].getTitre
-        }
-        ivCarteBonus2.setOnClickListener {
-            //Partie.getCurrentJour().appliquerChoix(cartes[0])
-            startActivity(createActionIntent("Carte bonus2"))//cartes[1].getTitre
-        }
-
-
-    }
-
-    //mise a jour des attributs du Joueur
-    private fun updateUI() {
-        tvPtsVie.text ="Vie :"+ Joueur.getPtsHydra().toString()
-        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
-        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +51,45 @@ class ChoixBonusView : AppCompatActivity()  {
 
 
     }
+
+    //initialisation de la Page
+    override fun onStart() {
+        super.onStart()
+        updateUI()
+        displayCarte()
+    }
+    //Affichage des Cartes Bonus
+    private fun displayCarte() {
+        var j : Jour = Partie.currentJour
+        var carte1 = j.getCartes()[0]
+        var carte2 = j.getCartes()[1]
+
+        ivCarteBonus1.setImageResource(R.drawable.cartbonus) //R.drawable.cartes[0].getImageId
+        ivCarteBonus2.setImageResource(R.drawable.cartbonus)
+
+
+
+
+        ivCarteBonus1.setOnClickListener {
+            j.appliquerChoix(carte1)
+            startActivity(createActionIntent(carte1.getTitre()))
+        }
+        ivCarteBonus2.setOnClickListener {
+           j.appliquerChoix(carte2)
+            startActivity(createActionIntent(carte2.getTitre()))
+        }
+
+
+    }
+
+    //Mise à jour des points de vie du JOUEUR
+    private fun updateUI() {
+        tvPtsVie.text ="Vie :"+ Joueur.getPtsHydra().toString()
+        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
+        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
+    }
+
+    // Creation des nouvelles activite
     private fun createActionIntent(choix: String): Intent {
         return Intent(this, ActionView::class.java).apply { this.putExtra("Choix",choix)
         }

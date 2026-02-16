@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         buttonSurvivre = findViewById(R.id.buttonSurvivre)
 
         buttonSurvivre.setOnClickListener {
-            //TODO Partie.demarrerParti()
+            Partie.demarrerParti()
             val intent = Intent(this, IntroGameView::class.java)
             startActivity(intent)
         }

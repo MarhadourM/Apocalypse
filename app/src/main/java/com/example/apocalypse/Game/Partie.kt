@@ -8,7 +8,7 @@ object Partie {
 
     private var etatJeu : EtatJeu = EtatJeu.MENU
     private var currentJourIndex  : Int  = 0
-     lateinit var currentJour  : Jour
+     lateinit  var currentJour  : Jour
      private var currentActionIndex  : Int  = 1
     //current Action  est un Choix car il doit contenir le lancer de dés
      lateinit var currentAction  : Choix
@@ -19,13 +19,15 @@ object Partie {
 
     init{
         this.journees = ArrayList<Jour>()
+
+        // malusjournee:  Dans le jeu la nuit est considere comme un malus
         malusjournee = Malus(
             "Malus Reveille",
             "Vous venez de vous reveillez à cause de la faim et et de la soif qui vous tiraillent le ventre",
              HashMap<Attribut, Int>().apply {
             this[Attribut.VIE] = 0
-            this[Attribut.SASIETE] = 0
-            this[Attribut.HYDRA] = 0
+            this[Attribut.SASIETE] = 2
+            this[Attribut.HYDRA] = 2
         }
             )
         initParti()
@@ -34,7 +36,9 @@ object Partie {
     private fun initParti() {
 
 
-        //Action pour la journée Champignion
+        /* JOUR 1
+        * Création des Actions 1
+        * */
         val actionJC1 = Action(
             6, "Renter dans la Grotte",
             Bonus("titre", "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
@@ -106,6 +110,7 @@ object Partie {
                      this[Attribut.HYDRA] = 0
                  })
         )
+        // Création des Dés
         val a = De6()
         val b = De6()
         val d = ArrayList<De>()
@@ -113,11 +118,13 @@ object Partie {
         d.add(b)
         val lancer = LancerDes(d)
 
+        //Ajout de actions dans des choix
         val choixJC1 = Choix(actionJC1,lancer)
         val choixJC2 = Choix(actionJC2,lancer)
         val choixJC3 = Choix(actionJC3,lancer)
         val choixJC4 = Choix(actionJC4,lancer)
 
+        //Création des cartes Bonus pour le jour 1
         val carteJC1 = Carte(
             "Hydratation",
             "Vous avez un bouteille d'eau",
@@ -147,6 +154,10 @@ object Partie {
         val jour1 = Jour(choixJC1, choixJC2, choixJC3, choixJC4, cartes)
 
         journees.add(jour1)
+        //ajout du jour actuelle
+        currentJourIndex = 0
+        currentJour = journees[0]
+
     }
 
     /**
@@ -160,8 +171,6 @@ object Partie {
 
     fun demarrerParti() {
         etatJeu = EtatJeu.ONSTART
-        currentJourIndex = 0
-        currentJour = journees[0]
         currentActionIndex = 1
         currentAction = currentJour.getAction(currentActionIndex)
     }
@@ -178,7 +187,9 @@ object Partie {
     //actionfinit  met à jour l'etat pour que la view sache quelle est le view suivante
 
     private fun actionFinit() {
+        //Si c'est la dernière Action du Jour
         if (currentActionIndex == 4){
+            //si c'est le dernier Jour
             if(currentJourIndex == 3){
                 declancherFindeparti()
             }else{
@@ -186,6 +197,8 @@ object Partie {
                 currentJour = journees[currentJourIndex]
                 currentActionIndex = 1
                 currentAction = currentJour.getAction(currentActionIndex)
+                //Application du Malus de la nuit
+                malusjournee.appliquerModificateur()
                 //Jour suivant  = Carte bonus
                 etatJeu = EtatJeu.CHOIXBONUS
             }
@@ -196,15 +209,8 @@ object Partie {
         }
     }
 
+    // GetCurrentAction permet au lancerDesSensor de lancer les dés la logique metiers reste dans lancéeDesFait ()
 
-
-
-
-
-    // GetCurrentAction permet au lancerDesSensor de lancer les des  la logique metiers reste dans lancéeDesFait ()
-    fun getCurrentAction(): Choix {
-        return currentAction
-    }
 
     fun lancéeDesFait(i : Int){
         if (i >= currentAction.getAction().getCible()){
@@ -219,7 +225,6 @@ object Partie {
         actionFinit()
 
     }
-
     fun etatLancerDes(){
         etatJeu = EtatJeu.LANCERDES
     }
@@ -235,6 +240,7 @@ object Partie {
         initParti()
         etatJeu = EtatJeu.MENU
     }
+
 
 }
 

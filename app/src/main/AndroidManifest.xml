@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Apocalypse">
         <activity
-            android:name=".Game.IntroGameView"
+            android:name=".IntroGameView"
             android:exported="false" />
         <activity
             android:name=".LancerDesSensor"

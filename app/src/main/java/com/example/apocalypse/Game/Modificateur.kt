@@ -12,6 +12,10 @@ abstract class Modificateur {
 //            this[Attribut.HYDRA] = 0
 //        }
 
+    /*
+    * Class Abstract Modificateur
+    * But: Permet de modifier les attributs du Joueur
+    * */
     constructor(titre: String, desc: String, attributsModifier: HashMap<Attribut, Int>) {
         this.titre = titre
         this.desc = desc

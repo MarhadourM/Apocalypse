@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.apocalypse.Game.Joueur
+import com.example.apocalypse.Game.Partie
 import com.example.apocalypse.R.*
 
 class ActionView: AppCompatActivity() {
@@ -52,7 +53,7 @@ class ActionView: AppCompatActivity() {
         setTextTvChoixCarte(mode)
 
         buttonLancerDes.setOnClickListener {
-            //Partie.etatLancerDes()
+            Partie.etatLancerDes()
             val intent = Intent(this, LancerDesSensor::class.java)
             startActivity(intent)
         }
