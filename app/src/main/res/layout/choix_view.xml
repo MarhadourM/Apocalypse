@@ -66,27 +66,6 @@
         app:srcCompat="@drawable/cartbonus" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:text="+10 Pts Vie"
-        app:layout_constraintEnd_toEndOf="@+id/ivCarteBonus1"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="@+id/ivCarteBonus1"
-        app:layout_constraintTop_toTopOf="@+id/ivCarteBonus1" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:text="+5 Hydratation"
-        app:layout_constraintEnd_toEndOf="@+id/ivCarteBonus2"
-        app:layout_constraintStart_toStartOf="@+id/ivCarteBonus2"
-        app:layout_constraintTop_toTopOf="@+id/ivCarteBonus2" />
-
-    <TextView
         android:id="@+id/tvPtsVie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

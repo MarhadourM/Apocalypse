@@ -64,8 +64,8 @@ class ChoixBonusView : AppCompatActivity()  {
         var carte1 = j.getCartes()[0]
         var carte2 = j.getCartes()[1]
 
-        ivCarteBonus1.setImageResource(R.drawable.cartbonus) //R.drawable.cartes[0].getImageId
-        ivCarteBonus2.setImageResource(R.drawable.cartbonus)
+        ivCarteBonus1.setImageResource(carte1.getImageID()) //R.drawable.cartes[0].getImageId
+        ivCarteBonus2.setImageResource(carte2.getImageID())
 
 
 

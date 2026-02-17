@@ -1,5 +1,7 @@
 package com.example.apocalypse.Game
 
+import com.example.apocalypse.R
+
 
 object Partie {
 
@@ -44,13 +46,13 @@ object Partie {
             Bonus("titre", "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SASIETE] = 0
-                this[Attribut.HYDRA] = 0
+                this[Attribut.HYDRA] = 10
         }),
             Malus(
                 "titre",
                 "Vous tombez sur un grotte toxique",
                 HashMap<Attribut, Int>().apply {
-                     this[Attribut.VIE] = 0
+                     this[Attribut.VIE] = 5
                      this[Attribut.SASIETE] = 0
                      this[Attribut.HYDRA] = 0
                  })
@@ -63,15 +65,15 @@ object Partie {
                 "Votre analyse semble bonne vous n'etes pas malade",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 0
-                     this[Attribut.SASIETE] = 0
+                     this[Attribut.SASIETE] = 4
                      this[Attribut.HYDRA] = 0
                  }),
             Malus(
                 "titre",
-                "l'espece du champignion vous a échapper, vous avez une intoxication",
+                "l'espece du champignion vous à échapper, vous avez une intoxication",
                  HashMap<Attribut, Int>().apply {
-                     this[Attribut.VIE] = 0
-                     this[Attribut.SASIETE] = 0
+                     this[Attribut.VIE] = 4
+                     this[Attribut.SASIETE] = 2
                      this[Attribut.HYDRA] = 0
                  })
         )
@@ -82,22 +84,22 @@ object Partie {
             Bonus("titre", "Creation d'un filtre ",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SASIETE] = 0
-                this[Attribut.HYDRA] = 0
+                this[Attribut.HYDRA] = 8
             }),
             Malus(
                 "titre",
-                "Creation d'un filtre mais vous buvez avec un troupeau d'elephants rose",
+                "Creation d'un filtre mais vous buvez avec un troupeau d'elephants roses",
                  HashMap<Attribut, Int>().apply {
-                     this[Attribut.VIE] = 0
+                     this[Attribut.VIE] = 3
                      this[Attribut.SASIETE] = 0
-                     this[Attribut.HYDRA] = 0
+                     this[Attribut.HYDRA] = 5
                  })
         )
         val actionJC4 = Action(
             6,
             "Grace au fiole que vous avez sur vous vous recolter un spore  pour l'etudier si vous trouvez une ville",
             Bonus("titre", "Extraction reussite",  HashMap<Attribut, Int>().apply {
-                this[Attribut.VIE] = 0
+                this[Attribut.VIE] = 5
                 this[Attribut.SASIETE] = 0
                 this[Attribut.HYDRA] = 0
             }),
@@ -105,7 +107,7 @@ object Partie {
                 "titre",
                 "echec de l'extraction, le spore c'est desintegrer il libere un substance toxique mais votre corps commence a s'adapter ",
                  HashMap<Attribut, Int>().apply {
-                     this[Attribut.VIE] = 0
+                     this[Attribut.VIE] = 2
                      this[Attribut.SASIETE] = 0
                      this[Attribut.HYDRA] = 0
                  })
@@ -131,19 +133,21 @@ object Partie {
              HashMap<Attribut, Int>().apply {
                  this[Attribut.VIE] = 0
                  this[Attribut.SASIETE] = 0
-                 this[Attribut.HYDRA] = 0
+                 this[Attribut.HYDRA] = 5
              },
-            Rarete.COMMUN
+            Rarete.COMMUN,
+            R.drawable.cartebouteille
         )
         val carteJC2 = Carte(
             "Nouritture",
             "Vous avez un boîte de conserve",
              HashMap<Attribut, Int>().apply {
                  this[Attribut.VIE] = 0
-                 this[Attribut.SASIETE] = 0
+                 this[Attribut.SASIETE] = 5
                  this[Attribut.HYDRA] = 0
              },
-            Rarete.COMMUN
+            Rarete.COMMUN,
+            R.drawable.carteconserve
         )
 
         val cartes = ArrayList<Carte>()
@@ -160,13 +164,6 @@ object Partie {
 
     }
 
-    /**
-     * Mauvaise idée
-     * Donc creation ClASS ENUM ETAT_PARTI (MENU,CHOIXBONUS,ACTION,LANCERDES,FINDEPARTIE)
-     * ce sont les activites qui vont faire changer le curseur  pour que le jeu ne se bloque pas
-     * TODO Remettre en ordre les methodes
-     *
-     */
 
 
     fun demarrerParti() {
