@@ -64,7 +64,7 @@ class ChoixBonusView : AppCompatActivity()  {
         var carte1 = j.getCartes()[0]
         var carte2 = j.getCartes()[1]
 
-        ivCarteBonus1.setImageResource(carte1.getImageID()) //R.drawable.cartes[0].getImageId
+        ivCarteBonus1.setImageResource(carte1.getImageID())
         ivCarteBonus2.setImageResource(carte2.getImageID())
 
 
@@ -84,7 +84,7 @@ class ChoixBonusView : AppCompatActivity()  {
 
     //Mise à jour des points de vie du JOUEUR
     private fun updateUI() {
-        tvPtsVie.text ="Vie :"+ Joueur.getPtsHydra().toString()
+        tvPtsVie.text ="Vie :"+ Joueur.getPtsVie().toString()
         tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
         tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
     }

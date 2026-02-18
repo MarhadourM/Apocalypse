@@ -23,16 +23,7 @@ class ActionView: AppCompatActivity() {
 
 
 
-    override fun onStart() {
-        super.onStart()
-        updateUI()
-    }
-    //mise a jour des attributs du Joueur
-    private fun updateUI() {
-        tvPtsVie.text ="Vie :"+ Joueur.getPtsHydra().toString()
-        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
-        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -60,8 +51,19 @@ class ActionView: AppCompatActivity() {
 
     }
     public fun setTextTvChoixCarte(txt: String?){
-        tvChoixCarteBonus.text = "Vous avez Choisi"+txt
+        tvChoixCarteBonus.text = "Vous avez Choisi "+txt
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        updateUI()
+    }
+    //mise a jour des attributs du Joueur
+    private fun updateUI() {
+        tvPtsVie.text ="Vie :"+ Joueur.getPtsVie().toString()
+        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
+        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
     }
 
 }

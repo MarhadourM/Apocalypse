@@ -4,8 +4,8 @@ object Joueur {
     // c'est un singleton
 
     private var ptsVie: Int = 30
-    private var ptsHydra: Int = 30
-    private var ptsSatiete: Int = 30
+    private var ptsHydra: Int = 20
+    private var ptsSatiete: Int = 20
     private var nom: String = "Partik"
 
 
@@ -55,7 +55,7 @@ object Joueur {
 
     fun reset() {
         this.setPtsVie(30)
-        this.setPtsHydra(30)
-        this.setPtsSatiete(30)
+        this.setPtsHydra(20)
+        this.setPtsSatiete(20)
     }
 }

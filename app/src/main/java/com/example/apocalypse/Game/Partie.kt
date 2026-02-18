@@ -128,7 +128,7 @@ object Partie {
 
         //Création des cartes Bonus pour le jour 1
         val carteJC1 = Carte(
-            "Hydratation",
+            "Bouteille d'eau",
             "Vous avez un bouteille d'eau",
              HashMap<Attribut, Int>().apply {
                  this[Attribut.VIE] = 0
@@ -139,7 +139,7 @@ object Partie {
             R.drawable.cartebouteille
         )
         val carteJC2 = Carte(
-            "Nouritture",
+            "Boite de Conserve",
             "Vous avez un boîte de conserve",
              HashMap<Attribut, Int>().apply {
                  this[Attribut.VIE] = 0
