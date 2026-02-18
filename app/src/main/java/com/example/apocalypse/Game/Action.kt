@@ -8,6 +8,7 @@ class Action {
     private val malus: Modificateur
 
 
+
     constructor(cible: Int, desc: String, bonus: Modificateur, malus: Modificateur) {
         this.cible = cible
         this.desc = desc
@@ -16,19 +17,8 @@ class Action {
     }
 
 
-    private fun appliquerBonus() {
-        bonus.appliquerModificateur()
-    }
 
 
-    private fun appliquerMalus() {
-        malus.appliquerModificateur()
-    }
-
-
-    fun afficherDescription() {
-        //TODO  Affiche la description de l'action + la description du bonus et malus
-    }
 
     fun getCible(): Int {
         return cible
@@ -48,4 +38,6 @@ class Action {
     fun getMalus(): Modificateur {
         return malus
     }
+
+
 }

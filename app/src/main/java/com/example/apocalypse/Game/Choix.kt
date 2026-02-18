@@ -14,7 +14,6 @@ class Choix {
         this.d = des
     }
 
-
     fun lancerlesDés(): Int {
         return d.lancer()
     }

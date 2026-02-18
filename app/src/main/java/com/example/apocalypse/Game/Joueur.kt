@@ -1,7 +1,6 @@
 package com.example.apocalypse.Game
 
 object Joueur {
-    // c'est un singleton
 
     private var ptsVie: Int = 30
     private var ptsHydra: Int = 20
@@ -14,7 +13,8 @@ object Joueur {
 
     fun getPtsVie() = ptsVie
     fun setPtsVie(ptsVie: Int) {
-        if (ptsVie < 0) {
+        if (ptsVie <= 0) {
+            this.ptsVie = 0
             Partie.declancherFindeparti()
         }else if (ptsVie>30){
             this.ptsVie = 30

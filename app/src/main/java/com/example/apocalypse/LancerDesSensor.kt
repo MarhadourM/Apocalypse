@@ -1,37 +1,45 @@
 package com.example.apocalypse
 
+import android.annotation.SuppressLint
+
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.apocalypse.Game.Choix
+import com.example.apocalypse.Game.EtatJeu
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
 
-class LancerDesSensor : AppCompatActivity(), SensorEventListener {
+class LancerDesSensor : BaseActivity(), SensorEventListener {
 
     lateinit var  sensorManager: SensorManager
+    lateinit var sensor: Sensor
     private var isDeLancee =false
 
-    lateinit var tvPtsVie : TextView
-    lateinit var tvPtsHydra : TextView
-    lateinit var tvPtsSasiete : TextView
 
-
-    lateinit var button : Button
+    lateinit var llBonusMalus: LinearLayout
     lateinit var imageViewDe1 : ImageView
     lateinit var imageViewDe2 : ImageView
 
-    lateinit var sensor: Sensor
+    lateinit var tvResult: TextView
+    lateinit var buttonSuivant: Button
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,6 +49,7 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        Partie.currentContext= this
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager;
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)  !!
 
@@ -55,13 +64,25 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
         //init Dés
         imageViewDe1 = findViewById(R.id.ivDe1)
         imageViewDe2 = findViewById(R.id.ivDe2)
-        button = findViewById(R.id.buttonLancer)
 
+        //init resultat du lancée
+        tvResult = findViewById(R.id.tvResult)
 
+        //init contraint Layout
+        llBonusMalus = findViewById(R.id.llBonusMalus)
 
+        //init Bouton pour l'action suivante
+        buttonSuivant = findViewById(R.id.buttonSuivant)
+        buttonSuivant.setOnClickListener {
+            Log.i("EtatParti","Etat de la partie  = "+ Partie.etatJeu )
+            when(Partie.etatJeu){
+                //Fin de partie
+                EtatJeu.CHOIXBONUS -> createIntent(this , ChoixBonusView::class.java)
+                EtatJeu.ACTION -> createIntent(this , ActionView::class.java)
+                else -> Log.i("EtatParti","Etat de la partie  = "+ Partie.etatJeu )
+            }
 
-
-
+        }
 
     }
 
@@ -71,11 +92,7 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
         updateUI()
     }
     //mise a jour des attributs du Joueur
-    private fun updateUI() {
-        tvPtsVie.text ="Vie :"+ Joueur.getPtsVie().toString()
-        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
-        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
-    }
+
 
     override fun onStop() {
         super.onStop()
@@ -86,7 +103,6 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
     override fun onResume() {
         super.onResume()
         sensorManager.registerListener(this,sensor, SensorManager.SENSOR_DELAY_GAME)
-
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
@@ -104,16 +120,26 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
             var devaccel = (x*x+y*y+z*z)/(EG*EG)
 
             if (devaccel>=3 && !isDeLancee){
-                displayRollDice(decomposerTotalEnDes(Partie.currentAction.lancerlesDés()))
-                //display Results ()
-                //Partie.lancéeDesFait()
-                /*TODO
-                * si l'etat est  action  =view action
-                * si l"etat est choix  = view choix bonux
-                * si fin de parti  = view fin de parti
-                * */
-
+                var currentAction = Partie.currentAction
+                var i = currentAction.lancerlesDés()
+                displayRollDice(decomposerTotalEnDes(i))
+                tvResult.text = i.toString()
+                val result  = Partie.lancéeDesFait(i)
+                if(result){
+                    updateBonus(currentAction.getAction().getBonus().getAttribut())
+                    updateUI()
+                }else{
+                    updateMalus(currentAction.getAction().getMalus().getAttribut())
+                    updateUI()
+                }
                 isDeLancee = true
+                if(Partie.etatJeu != EtatJeu.FINPARTI){
+                    buttonSuivant.visibility = View.VISIBLE
+                }
+
+
+
+                //TODO afficher le titre et description malus
             }
 
         }
@@ -143,7 +169,6 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
 
     }
 
-
     fun decomposerTotalEnDes(total: Int): Pair<Int, Int> {
         require(total in 2..12) { "Total doit être entre 2 et 12" }
 
@@ -156,6 +181,30 @@ class LancerDesSensor : AppCompatActivity(), SensorEventListener {
         val paire = possibles.random()
         return paire
     }
+
+
+    fun updateBonus(attributModifier : String){
+
+        val inflater = LayoutInflater.from(this)
+        val itemView = inflater.inflate(R.layout.bonus_view, llBonusMalus, false)
+        var tvBonusAttribut = itemView.findViewById<TextView>(R.id.tvBonusAttribut)
+        tvBonusAttribut.text = attributModifier
+
+        llBonusMalus.addView(itemView)
+    }
+
+    fun updateMalus(attributModifier : String){
+
+        val inflater = LayoutInflater.from(this)
+        val itemView = inflater.inflate(R.layout.malus_view, llBonusMalus, false)
+        var tvBonusAttribut = itemView.findViewById<TextView>(R.id.tvMalusAttribut)
+        tvBonusAttribut.text = attributModifier
+
+        llBonusMalus.addView(itemView)
+    }
+
+
+
 }
 
 

@@ -7,8 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.apocalypse.Game.Partie
 
-class IntroGameView : AppCompatActivity() {
+class IntroGameView : BaseActivity() {
 
     lateinit var  buttonDialogue : Button
 
@@ -21,13 +22,14 @@ class IntroGameView : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        Partie.currentContext = this
         buttonDialogue = findViewById(R.id.buttonDialog)
 
 
         buttonDialogue.setOnClickListener {
-            //TODO Partie.finIntro()
-            val intent = Intent(this, ChoixBonusView::class.java)
-            startActivity(intent)
+            Partie.finIntro()
+            createIntent(this, ChoixBonusView::class.java)
         }
     }
 }

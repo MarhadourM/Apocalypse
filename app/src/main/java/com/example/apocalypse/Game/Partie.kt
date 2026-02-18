@@ -1,14 +1,20 @@
 package com.example.apocalypse.Game
 
+import android.annotation.SuppressLint
+import android.content.Context
+import com.example.apocalypse.FinPartiDialog
 import com.example.apocalypse.R
+import kotlinx.coroutines.delay
 
 
+@SuppressLint("StaticFieldLeak")
 object Partie {
 
+    lateinit var currentContext: Context
     private val journees: ArrayList<Jour>
     private val malusjournee: Modificateur
 
-    private var etatJeu : EtatJeu = EtatJeu.MENU
+    var etatJeu : EtatJeu = EtatJeu.MENU
     private var currentJourIndex  : Int  = 0
      lateinit  var currentJour  : Jour
      private var currentActionIndex  : Int  = 1
@@ -28,7 +34,7 @@ object Partie {
             "Vous venez de vous reveillez à cause de la faim et et de la soif qui vous tiraillent le ventre",
              HashMap<Attribut, Int>().apply {
             this[Attribut.VIE] = 0
-            this[Attribut.SASIETE] = 2
+            this[Attribut.SATIETE] = 2
             this[Attribut.HYDRA] = 2
         }
             )
@@ -42,18 +48,18 @@ object Partie {
         * Création des Actions 1
         * */
         val actionJC1 = Action(
-            6, "Renter dans la Grotte",
+            12, "Vous vous baladez dans la foret et vous tombez sur un abris de Fortune vous rentez dans la Grotte",
             Bonus("titre", "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
                 this[Attribut.VIE] = 0
-                this[Attribut.SASIETE] = 0
+                this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 10
         }),
             Malus(
                 "titre",
                 "Vous tombez sur un grotte toxique",
                 HashMap<Attribut, Int>().apply {
-                     this[Attribut.VIE] = 5
-                     this[Attribut.SASIETE] = 0
+                     this[Attribut.VIE] = 30
+                     this[Attribut.SATIETE] = 0
                      this[Attribut.HYDRA] = 0
                  })
         )
@@ -65,7 +71,7 @@ object Partie {
                 "Votre analyse semble bonne vous n'etes pas malade",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 0
-                     this[Attribut.SASIETE] = 4
+                     this[Attribut.SATIETE] = 4
                      this[Attribut.HYDRA] = 0
                  }),
             Malus(
@@ -73,7 +79,7 @@ object Partie {
                 "l'espece du champignion vous à échapper, vous avez une intoxication",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 4
-                     this[Attribut.SASIETE] = 2
+                     this[Attribut.SATIETE] = 2
                      this[Attribut.HYDRA] = 0
                  })
         )
@@ -83,7 +89,7 @@ object Partie {
             "Vous avez trouvez un champignon vous decidez de l'etudier,le champignion  semble avoir un proprieter filtrante",
             Bonus("titre", "Creation d'un filtre ",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 0
-                this[Attribut.SASIETE] = 0
+                this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 8
             }),
             Malus(
@@ -91,7 +97,7 @@ object Partie {
                 "Creation d'un filtre mais vous buvez avec un troupeau d'elephants roses",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 3
-                     this[Attribut.SASIETE] = 0
+                     this[Attribut.SATIETE] = 0
                      this[Attribut.HYDRA] = 5
                  })
         )
@@ -100,7 +106,7 @@ object Partie {
             "Grace au fiole que vous avez sur vous vous recolter un spore  pour l'etudier si vous trouvez une ville",
             Bonus("titre", "Extraction reussite",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 5
-                this[Attribut.SASIETE] = 0
+                this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 0
             }),
             Malus(
@@ -108,7 +114,7 @@ object Partie {
                 "echec de l'extraction, le spore c'est desintegrer il libere un substance toxique mais votre corps commence a s'adapter ",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 2
-                     this[Attribut.SASIETE] = 0
+                     this[Attribut.SATIETE] = 0
                      this[Attribut.HYDRA] = 0
                  })
         )
@@ -132,7 +138,7 @@ object Partie {
             "Vous avez un bouteille d'eau",
              HashMap<Attribut, Int>().apply {
                  this[Attribut.VIE] = 0
-                 this[Attribut.SASIETE] = 0
+                 this[Attribut.SATIETE] = 0
                  this[Attribut.HYDRA] = 5
              },
             Rarete.COMMUN,
@@ -143,7 +149,7 @@ object Partie {
             "Vous avez un boîte de conserve",
              HashMap<Attribut, Int>().apply {
                  this[Attribut.VIE] = 0
-                 this[Attribut.SASIETE] = 5
+                 this[Attribut.SATIETE] = 5
                  this[Attribut.HYDRA] = 0
              },
             Rarete.COMMUN,
@@ -169,7 +175,7 @@ object Partie {
     fun demarrerParti() {
         etatJeu = EtatJeu.ONSTART
         currentActionIndex = 1
-        currentAction = currentJour.getAction(currentActionIndex)
+        currentAction = currentJour.getAction(1)
     }
 
     fun finIntro(){
@@ -182,10 +188,11 @@ object Partie {
     }
 
     //actionfinit  met à jour l'etat pour que la view sache quelle est le view suivante
+    //TODO  mettre des bons commentaires
 
     private fun actionFinit() {
         //Si c'est la dernière Action du Jour
-        if (currentActionIndex == 4){
+        if (currentActionIndex == 3){
             //si c'est le dernier Jour
             if(currentJourIndex == 3){
                 declancherFindeparti()
@@ -196,7 +203,7 @@ object Partie {
                 currentAction = currentJour.getAction(currentActionIndex)
                 //Application du Malus de la nuit
                 malusjournee.appliquerModificateur()
-                //Jour suivant  = Carte bonus
+                //Jour suivant = Carte bonus
                 etatJeu = EtatJeu.CHOIXBONUS
             }
         }else{
@@ -206,31 +213,33 @@ object Partie {
         }
     }
 
-    // GetCurrentAction permet au lancerDesSensor de lancer les dés la logique metiers reste dans lancéeDesFait ()
 
 
-    fun lancéeDesFait(i : Int){
-        if (i >= currentAction.getAction().getCible()){
+    fun lancéeDesFait(i : Int) : Boolean{
+        val succes = i >= currentAction.getAction().getCible()
+        if (succes){
             currentAction.getAction().getBonus().appliquerModificateur()
         }else{
             currentAction.getAction().getMalus().appliquerModificateur()
         }
         if (etatJeu!=EtatJeu.FINPARTI){
-
+            actionFinit()
         }
-
-        actionFinit()
-
+        return succes
     }
+
     fun etatLancerDes(){
         etatJeu = EtatJeu.LANCERDES
     }
 
 
     fun declancherFindeparti() {
+
         etatJeu = EtatJeu.FINPARTI
-        Joueur.reset()
-        this.reset()
+
+        val dialog = FinPartiDialog(currentContext)
+        dialog.show()
+
     }
 
     private fun reset() {

@@ -35,13 +35,7 @@ abstract class Modificateur {
     }
 
 
-    fun affichageAttribut(attribut: Attribut) : Int {
-        when (attribut) {
-            Attribut.VIE -> return attributsModifier.getValue(Attribut.VIE)
-            Attribut.HYDRA -> return attributsModifier.getValue(Attribut.HYDRA)
-            Attribut.SASIETE -> return attributsModifier.getValue(Attribut.SASIETE)
-        }
-    }
+    abstract fun getAttribut() : String
 
 
 

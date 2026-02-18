@@ -12,14 +12,14 @@ import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
 import com.example.apocalypse.R.*
 
-class ActionView: AppCompatActivity() {
+class ActionView: BaseActivity() {
 
     lateinit var tvChoixCarteBonus: TextView
     lateinit var buttonLancerDes : Button
 
-    lateinit var tvPtsVie : TextView
-    lateinit var tvPtsHydra : TextView
-    lateinit var tvPtsSasiete : TextView
+
+    lateinit var tvDescriptionAction : TextView
+    lateinit var tvCible : TextView
 
 
 
@@ -33,12 +33,18 @@ class ActionView: AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        tvChoixCarteBonus = findViewById(R.id.tvChoixCarteBonus)
-        buttonLancerDes  = findViewById(R.id.buttonLancerDes)
+        Partie.currentContext=this
+        tvChoixCarteBonus = findViewById(id.tvChoixCarteBonus)
+        buttonLancerDes  = findViewById(id.buttonLancerDes)
 
-        tvPtsVie = findViewById(R.id.tvPtsVie2)
-        tvPtsHydra = findViewById(R.id.tvPtsHydra2)
-        tvPtsSasiete = findViewById(R.id.tvPtsSasiete2)
+        tvPtsVie = findViewById(id.tvPtsVie2)
+        tvPtsHydra = findViewById(id.tvPtsHydra2)
+        tvPtsSasiete = findViewById(id.tvPtsSasiete2)
+
+        //init des TextView Lié à l'action
+        tvDescriptionAction = findViewById(id.tvDescriptionAction)
+        tvCible = findViewById(id.tvCible)
+
 
         val mode = intent.getStringExtra("Choix")
         setTextTvChoixCarte(mode)
@@ -50,7 +56,7 @@ class ActionView: AppCompatActivity() {
         }
 
     }
-    public fun setTextTvChoixCarte(txt: String?){
+     fun setTextTvChoixCarte(txt: String?){
         tvChoixCarteBonus.text = "Vous avez Choisi "+txt
 
     }
@@ -58,12 +64,18 @@ class ActionView: AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         updateUI()
+        displayAction()
     }
-    //mise a jour des attributs du Joueur
-    private fun updateUI() {
-        tvPtsVie.text ="Vie :"+ Joueur.getPtsVie().toString()
-        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
-        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
+
+
+
+
+    private fun displayAction() {
+        tvDescriptionAction.text= Partie.currentAction.getAction().getDesc()
+        var cible = " Cible - " + Partie.currentAction.getAction().getCible().toString()
+        tvCible.text = cible
+
+        // TODO affichage des bonus et malus
     }
 
 }

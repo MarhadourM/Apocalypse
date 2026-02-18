@@ -12,14 +12,11 @@ import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Jour
 import com.example.apocalypse.Game.Partie
 
-class ChoixBonusView : AppCompatActivity()  {
+class ChoixBonusView : BaseActivity()  {
 
     lateinit var ivCarteBonus1: ImageView
     lateinit var ivCarteBonus2: ImageView
 
-    lateinit var tvPtsVie : TextView
-    lateinit var tvPtsHydra : TextView
-    lateinit var tvPtsSasiete : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +28,7 @@ class ChoixBonusView : AppCompatActivity()  {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        Partie.currentContext = this
         ivCarteBonus1 = findViewById(R.id.ivCarteBonus1)
         ivCarteBonus2 = findViewById(R.id.ivCarteBonus2)
         // init attributs joueur
@@ -39,15 +36,6 @@ class ChoixBonusView : AppCompatActivity()  {
         tvPtsHydra = findViewById(R.id.tvPtsHydra)
         tvPtsSasiete = findViewById(R.id.tvPtsSasiete)
 
-
-
-        ivCarteBonus1.setOnClickListener {
-
-            startActivity(createActionIntent("Carte bonus1"))
-        }
-        ivCarteBonus2.setOnClickListener {
-            startActivity(createActionIntent("Carte bonus2"))
-        }
 
 
     }
@@ -69,30 +57,17 @@ class ChoixBonusView : AppCompatActivity()  {
 
 
 
-
         ivCarteBonus1.setOnClickListener {
             j.appliquerChoix(carte1)
-            startActivity(createActionIntent(carte1.getTitre()))
+            createActionIntent(this, ActionView::class.java,carte1.getTitre())
         }
         ivCarteBonus2.setOnClickListener {
            j.appliquerChoix(carte2)
-            startActivity(createActionIntent(carte2.getTitre()))
+            createActionIntent(this, ActionView::class.java,carte2.getTitre())
         }
 
 
     }
 
-    //Mise à jour des points de vie du JOUEUR
-    private fun updateUI() {
-        tvPtsVie.text ="Vie :"+ Joueur.getPtsVie().toString()
-        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
-        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
-    }
-
-    // Creation des nouvelles activite
-    private fun createActionIntent(choix: String): Intent {
-        return Intent(this, ActionView::class.java).apply { this.putExtra("Choix",choix)
-        }
-    }
 
 }
