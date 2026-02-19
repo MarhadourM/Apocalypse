@@ -1,6 +1,6 @@
 package com.example.apocalypse.Game
 
-open class Bonus(titre: String, desc: String, attributsModifier: HashMap<Attribut, Int>) : Modificateur(titre, desc, attributsModifier) {
+open class Bonus(desc: String, attributsModifier: HashMap<Attribut, Int>) : Modificateur( desc, attributsModifier) {
 
     override fun appliquerModificateur(){
         Joueur.setPtsVie(Joueur.getPtsVie() + attributsModifier.getValue(Attribut.VIE))

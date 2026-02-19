@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,12 @@ class ActionView: BaseActivity() {
 
     lateinit var tvDescriptionAction : TextView
     lateinit var tvCible : TextView
+    lateinit var tvModificateurBonus : TextView
+
+    lateinit var tvModificateurMalus : TextView
+
+
+
 
 
 
@@ -45,10 +52,20 @@ class ActionView: BaseActivity() {
         //init des TextView Lié à l'action
         tvDescriptionAction = findViewById(id.tvDescriptionAction)
         tvCible = findViewById(id.tvCible)
+        //init des TextView Lié au Bonus et au Malus de l'action
+        tvModificateurBonus = findViewById(R.id.tvModificateurBonus)
+        tvModificateurMalus = findViewById(R.id.tvModificateurMalus)
+
 
 
         val mode = intent.getStringExtra("Choix")
-        setTextTvChoixCarte(mode)
+
+        if(Partie.currentActionIndex == 1){
+            setTextTvChoixCarte(mode)
+        }else{
+            tvChoixCarteBonus.visibility = View.GONE
+        }
+
 
         buttonLancerDes.setOnClickListener {
             Partie.etatLancerDes()
@@ -58,6 +75,7 @@ class ActionView: BaseActivity() {
 
     }
      fun setTextTvChoixCarte(txt: String?){
+         tvChoixCarteBonus.visibility = View.VISIBLE
         tvChoixCarteBonus.text = "Vous avez Choisi "+txt
 
     }
@@ -69,14 +87,15 @@ class ActionView: BaseActivity() {
     }
 
 
-
-
     private fun displayAction() {
         tvDescriptionAction.text= Partie.currentAction.getAction().getDesc()
         var cible = " Cible - " + Partie.currentAction.getAction().getCible().toString()
         tvCible.text = cible
 
-        // TODO affichage des bonus et malus
+        tvModificateurMalus.text = Partie.currentAction.getAction().getMalus().getAttribut()
+        tvModificateurBonus.text = Partie.currentAction.getAction().getBonus().getAttribut()
+
+
     }
 
 }

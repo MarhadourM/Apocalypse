@@ -23,8 +23,8 @@ object Partie {
     var etatJeu : EtatJeu = EtatJeu.MENU
     private var currentJourIndex  : Int  = 0
      lateinit  var currentJour  : Jour
-     private var currentActionIndex  : Int  = 1
-    //current Action  est un Choix car il doit contenir le lancer de dés
+     var currentActionIndex  : Int  = 1
+
      lateinit var currentAction  : Choix
 
 
@@ -36,7 +36,6 @@ object Partie {
 
         // malusjournee:  Dans le jeu la nuit est considere comme un malus
         malusjournee = Malus(
-            "Malus Reveille",
             "Vous venez de vous reveillez à cause de la faim et et de la soif qui vous tiraillent le ventre",
              HashMap<Attribut, Int>().apply {
             this[Attribut.VIE] = 0
@@ -54,26 +53,24 @@ object Partie {
         * Création des Actions 1
         * */
         val actionJC1 = Action(
-            12, "Vous vous baladez dans la foret et vous tombez sur un abris de Fortune vous rentez dans la Grotte",
-            Bonus("titre", "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
+            6, "Vous vous baladez dans la foret et vous tombez sur un abris de Fortune vous rentez dans la Grotte",
+            Bonus( "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 5
         }),
             Malus(
-                "titre",
                 "Vous tombez sur un grotte toxique",
                 HashMap<Attribut, Int>().apply {
-                     this[Attribut.VIE] = 30
+                     this[Attribut.VIE] = 5
                      this[Attribut.SATIETE] = 0
                      this[Attribut.HYDRA] = 0
                  })
         )
 
         val actionJC2 = Action(
-            6, "Dans la foret vous trouver des champignons que vous etudiez puis mangez	",
+            12, "Dans la foret vous trouver des champignons que vous etudiez puis mangez",
             Bonus(
-                "titre",
                 "Votre analyse semble bonne vous n'etes pas malade",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 0
@@ -81,7 +78,6 @@ object Partie {
                      this[Attribut.HYDRA] = 0
                  }),
             Malus(
-                "titre",
                 "l'espece du champignion vous à échapper, vous avez une intoxication",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 4
@@ -91,15 +87,14 @@ object Partie {
         )
 
         val actionJC3 = Action(
-            6,
+            12,
             "Vous avez trouvez un champignon vous decidez de l'etudier,le champignion  semble avoir un proprieter filtrante",
-            Bonus("titre", "Creation d'un filtre ",  HashMap<Attribut, Int>().apply {
+            Bonus( "Creation d'un filtre ",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 8
             }),
             Malus(
-                "titre",
                 "Creation d'un filtre mais vous buvez avec un troupeau d'elephants roses",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 3
@@ -110,14 +105,13 @@ object Partie {
         val actionJC4 = Action(
             6,
             "Grace au fiole que vous avez sur vous vous recolter un spore  pour l'etudier si vous trouvez une ville",
-            Bonus("titre", "Extraction reussite",  HashMap<Attribut, Int>().apply {
+            Bonus( "Extraction reussite",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 5
                 this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 0
             }),
             Malus(
-                "titre",
-                "echec de l'extraction, le spore c'est desintegrer il libere un substance toxique mais votre corps commence a s'adapter ",
+                "echec de l'extraction,il est toxique mais votre corps s'y habitue ",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 2
                      this[Attribut.SATIETE] = 0
@@ -258,9 +252,10 @@ object Partie {
 
     }
 
-    private fun reset() {
+     fun reset() {
         initParti()
         etatJeu = EtatJeu.MENU
+        Joueur.reset()
     }
 
 

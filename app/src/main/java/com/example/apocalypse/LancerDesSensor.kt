@@ -193,7 +193,10 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
 
         val inflater = LayoutInflater.from(this)
         val itemView = inflater.inflate(R.layout.bonus_view, llBonusMalus, false)
+        var tvDescBonus = itemView.findViewById<TextView>(R.id.tvDescBonus)
         var tvBonusAttribut = itemView.findViewById<TextView>(R.id.tvBonusAttribut)
+
+        tvDescBonus.text = currentAction.getAction().getBonus().getDesc()
         tvBonusAttribut.text = attributModifier
 
         llBonusMalus.addView(itemView)
@@ -203,8 +206,11 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
 
         val inflater = LayoutInflater.from(this)
         val itemView = inflater.inflate(R.layout.malus_view, llBonusMalus, false)
-        var tvBonusAttribut = itemView.findViewById<TextView>(R.id.tvMalusAttribut)
-        tvBonusAttribut.text = attributModifier
+        var tvDescMalus = itemView.findViewById<TextView>(R.id.tvDescMalus)
+        var tvMalusAttribut = itemView.findViewById<TextView>(R.id.tvMalusAttribut)
+
+        tvDescMalus.text = currentAction.getAction().getMalus().getDesc()
+        tvMalusAttribut.text = attributModifier
 
         llBonusMalus.addView(itemView)
     }

@@ -6,25 +6,29 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvBonus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:id="@+id/tvDescBonus"
+        android:layout_width="388dp"
+        android:layout_height="82dp"
+        android:autoText="true"
         android:text="Bonus"
-        android:textSize="34sp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:autoSizeMaxTextSize="34dp"
+        app:autoSizeMinTextSize="12dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvBonusAttribut"
-        android:layout_width="186dp"
-        android:layout_height="84dp"
+        android:layout_width="127dp"
+        android:layout_height="74dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBonus" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescBonus" />
 </androidx.constraintlayout.widget.ConstraintLayout>

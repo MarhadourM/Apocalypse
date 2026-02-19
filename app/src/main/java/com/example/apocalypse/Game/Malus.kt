@@ -1,6 +1,6 @@
 package com.example.apocalypse.Game
 
-class Malus(titre: String, desc: String, attributsModifier: HashMap<Attribut, Int>) : Modificateur(titre, desc, attributsModifier) {
+class Malus(desc: String, attributsModifier: HashMap<Attribut, Int>) : Modificateur(desc, attributsModifier) {
 
     override fun appliquerModificateur() {
         Joueur.setPtsVie(Joueur.getPtsVie() - attributsModifier.getValue(Attribut.VIE))

@@ -58,6 +58,7 @@ class FinPartiDialog(private val context: Context) {
         closebtn.setOnClickListener {
             val intent = Intent(context, MainActivity::class.java)
             context.startActivity(intent)
+            Partie.reset()
             dialog.dismiss()
         }
 

@@ -7,23 +7,28 @@
 
     <TextView
         android:id="@+id/tvMalusAttribut"
-        android:layout_width="200dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="201dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMalus" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescMalus" />
 
     <TextView
-        android:id="@+id/tvMalus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:id="@+id/tvDescMalus"
+        android:layout_width="388dp"
+        android:layout_height="76dp"
+        android:autoText="true"
         android:text="Malus"
-        android:textSize="34sp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:autoSizeMaxTextSize="34dp"
+        app:autoSizeMinTextSize="12dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
