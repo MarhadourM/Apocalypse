@@ -69,7 +69,7 @@ object Partie {
         )
 
         val actionJC2 = Action(
-            12, "Dans la foret vous trouver des champignons que vous etudiez puis mangez",
+            6, "Dans la foret vous trouver des champignons que vous etudiez puis mangez",
             Bonus(
                 "Votre analyse semble bonne vous n'etes pas malade",
                  HashMap<Attribut, Int>().apply {
@@ -87,7 +87,7 @@ object Partie {
         )
 
         val actionJC3 = Action(
-            12,
+            6,
             "Vous avez trouvez un champignon vous decidez de l'etudier,le champignion  semble avoir un proprieter filtrante",
             Bonus( "Creation d'un filtre ",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 0
