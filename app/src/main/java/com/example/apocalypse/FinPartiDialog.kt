@@ -2,6 +2,7 @@ package com.example.apocalypse
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -54,7 +55,11 @@ class FinPartiDialog(private val context: Context) {
 
 
         val closebtn = dialog.findViewById<Button>(R.id.buttonFermer)
-        closebtn.setOnClickListener {dialog.dismiss()}
+        closebtn.setOnClickListener {
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+            dialog.dismiss()
+        }
 
         dialog.show()
 

@@ -247,7 +247,7 @@ object Partie {
         Toast.makeText(currentContext,  "FIN DE PARTI" , Toast.LENGTH_LONG).show()
 
 
-        object : CountDownTimer(3000, 1000) {
+        object : CountDownTimer(2000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
                 FinPartiDialog(currentContext).show()
