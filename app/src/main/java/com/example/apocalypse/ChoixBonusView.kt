@@ -58,10 +58,12 @@ class ChoixBonusView : BaseActivity()  {
 
 
         ivCarteBonus1.setOnClickListener {
+            Partie.choixBonusFait()
             j.appliquerChoix(carte1)
             createActionIntent(this, ActionView::class.java,carte1.getTitre())
         }
         ivCarteBonus2.setOnClickListener {
+            Partie.choixBonusFait()
            j.appliquerChoix(carte2)
             createActionIntent(this, ActionView::class.java,carte2.getTitre())
         }

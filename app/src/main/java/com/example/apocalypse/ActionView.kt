@@ -3,6 +3,7 @@ package com.example.apocalypse
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -51,9 +52,9 @@ class ActionView: BaseActivity() {
 
         buttonLancerDes.setOnClickListener {
             Partie.etatLancerDes()
-            val intent = Intent(this, LancerDesSensor::class.java)
-            startActivity(intent)
+            createIntent(this, LancerDesSensor::class.java)
         }
+
 
     }
      fun setTextTvChoixCarte(txt: String?){

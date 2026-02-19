@@ -3,15 +3,21 @@ package com.example.apocalypse
 import android.app.Dialog
 import android.content.Context
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.example.apocalypse.Game.Attribut
+import com.example.apocalypse.Game.EtatJeu
+import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
 
 class FinPartiDialog(private val context: Context) {
     val dialog = Dialog(context)
+    lateinit var  llCauseFinParti : LinearLayout
 
     fun show() {
         Log.i("dialog","dans la methode show ")
@@ -34,10 +40,23 @@ class FinPartiDialog(private val context: Context) {
             val height = (context.resources.displayMetrics.heightPixels * 0.90).toInt()
             window.setLayout(width, height)
         }
-        dialog.show()
+        llCauseFinParti = dialog.findViewById<LinearLayout>(R.id.llCauseFinParti)
+        val inflater = LayoutInflater.from(context)
+        if(Joueur.isDead()){
+            val itemView = inflater.inflate(R.layout.fin_parti_mort, llCauseFinParti, false)
+            llCauseFinParti.addView(itemView)
+        }else{
+            val itemView = inflater.inflate(R.layout.fin_parti_victoire, llCauseFinParti, false)
+            llCauseFinParti.addView(itemView)
+        }
+
+
+
 
         val closebtn = dialog.findViewById<Button>(R.id.buttonFermer)
         closebtn.setOnClickListener {dialog.dismiss()}
+
+        dialog.show()
 
 
 

@@ -37,6 +37,9 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
 
     lateinit var tvResult: TextView
     lateinit var buttonSuivant: Button
+    lateinit var  currentAction :Choix
+
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -71,10 +74,11 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
         //init contraint Layout
         llBonusMalus = findViewById(R.id.llBonusMalus)
 
+        currentAction= Partie.currentAction
+
         //init Bouton pour l'action suivante
         buttonSuivant = findViewById(R.id.buttonSuivant)
         buttonSuivant.setOnClickListener {
-            Log.i("EtatParti","Etat de la partie  = "+ Partie.etatJeu )
             when(Partie.etatJeu){
                 //Fin de partie
                 EtatJeu.CHOIXBONUS -> createIntent(this , ChoixBonusView::class.java)
@@ -83,6 +87,7 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
             }
 
         }
+        Log.i("EtatParti","Current Action  = "+ Partie.currentAction.getAction().getDesc() )
 
     }
 
@@ -120,7 +125,7 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
             var devaccel = (x*x+y*y+z*z)/(EG*EG)
 
             if (devaccel>=3 && !isDeLancee){
-                var currentAction = Partie.currentAction
+
                 var i = currentAction.lancerlesDés()
                 displayRollDice(decomposerTotalEnDes(i))
                 tvResult.text = i.toString()
@@ -132,6 +137,7 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
                     updateMalus(currentAction.getAction().getMalus().getAttribut())
                     updateUI()
                 }
+                Log.i("EtatParti","Etat de la partie  = "+ Partie.etatJeu )
                 isDeLancee = true
                 if(Partie.etatJeu != EtatJeu.FINPARTI){
                     buttonSuivant.visibility = View.VISIBLE

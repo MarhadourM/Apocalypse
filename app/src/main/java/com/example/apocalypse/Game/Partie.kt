@@ -2,9 +2,15 @@ package com.example.apocalypse.Game
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.CountDownTimer
+import android.os.Looper
+import android.util.Log
+import android.widget.Toast
+import androidx.core.os.postDelayed
 import com.example.apocalypse.FinPartiDialog
 import com.example.apocalypse.R
 import kotlinx.coroutines.delay
+import java.util.logging.Handler
 
 
 @SuppressLint("StaticFieldLeak")
@@ -52,7 +58,7 @@ object Partie {
             Bonus("titre", "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SATIETE] = 0
-                this[Attribut.HYDRA] = 10
+                this[Attribut.HYDRA] = 5
         }),
             Malus(
                 "titre",
@@ -175,7 +181,7 @@ object Partie {
     fun demarrerParti() {
         etatJeu = EtatJeu.ONSTART
         currentActionIndex = 1
-        currentAction = currentJour.getAction(1)
+        currentAction = currentJour.getAction(currentActionIndex)
     }
 
     fun finIntro(){
@@ -192,11 +198,12 @@ object Partie {
 
     private fun actionFinit() {
         //Si c'est la dernière Action du Jour
-        if (currentActionIndex == 3){
+        if (currentActionIndex == 4){
             //si c'est le dernier Jour
-            if(currentJourIndex == 3){
+            if(currentJourIndex == 0){
                 declancherFindeparti()
             }else{
+                Log.i("partie", currentJourIndex.toString())
                 currentJourIndex ++
                 currentJour = journees[currentJourIndex]
                 currentActionIndex = 1
@@ -237,8 +244,17 @@ object Partie {
 
         etatJeu = EtatJeu.FINPARTI
 
-        val dialog = FinPartiDialog(currentContext)
-        dialog.show()
+        Toast.makeText(currentContext,  "FIN DE PARTI" , Toast.LENGTH_LONG).show()
+
+
+        object : CountDownTimer(3000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {}
+            override fun onFinish() {
+                FinPartiDialog(currentContext).show()
+            }
+        }.start()
+
+
 
     }
 
