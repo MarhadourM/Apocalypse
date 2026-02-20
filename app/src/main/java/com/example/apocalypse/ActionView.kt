@@ -9,7 +9,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
 import com.example.apocalypse.R.*
@@ -36,11 +38,11 @@ class ActionView: BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(layout.action_view)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(id.actionview)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val controller = WindowInsetsControllerCompat(window, window.decorView)
+        controller.hide(WindowInsetsCompat.Type.systemBars())
+        controller.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         Partie.currentContext=this
         tvChoixCarteBonus = findViewById(id.tvChoixCarteBonus)
         buttonLancerDes  = findViewById(id.buttonLancerDes)

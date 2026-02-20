@@ -7,13 +7,58 @@
     android:layout_height="match_parent"
     tools:context=".IntroGameView">
 
+
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/background_menu"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/whiteOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#B3FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/buttonDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="172dp"
-        android:text="Passer Dialogue "
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="116dp"
+        android:background="@drawable/paper_background"
+        android:text="@string/passer_dialogue"
+        android:textColor="#000000"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="386dp"
+        android:layout_height="121dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/parchemin"
+        android:fontFamily="@font/crimson_text"
+        android:padding="3dp"
+        android:text="Vous etes maintenant patrik et vous venez de sortir pour la dernière fois du Bunker-antiatomique  "
+        android:textColor="#3E2723"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgImage" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

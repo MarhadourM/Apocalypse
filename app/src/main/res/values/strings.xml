@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Apocalypse</string>
+    <string name="survivre">SURVIVRE</string>
+    <string name="passer_dialogue">Passer Dialogue</string>
 </resources>
