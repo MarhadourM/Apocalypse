@@ -26,6 +26,7 @@ object Partie {
      var currentActionIndex  : Int  = 1
 
      lateinit var currentAction  : Choix
+     var isFirstPartie : Boolean = true
 
 
 

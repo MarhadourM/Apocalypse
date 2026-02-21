@@ -29,20 +29,35 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/buttonDialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="116dp"
+        android:id="@+id/buttonPasserRegles"
+        android:layout_width="152dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/paper_background"
-        android:text="@string/passer_dialogue"
+        android:text="Passer Règles"
+        android:textColor="#000000"
+        android:visibility="gone"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/buttonRegleSuivante"
+        app:layout_constraintStart_toStartOf="@+id/buttonRegleSuivante"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegleSuivante" />
+
+    <Button
+        android:id="@+id/buttonRegleSuivante"
+        android:layout_width="152dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="168dp"
+        android:background="@drawable/paper_background"
+        android:text="Regle Suivante"
         android:textColor="#000000"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -59,6 +74,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bgImage" />
+
+    <ProgressBar
+        android:id="@+id/progressBarVie"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="100dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="52dp"
+        android:max="90"
+        android:min="0"
+        android:progress="90"
+        android:progressDrawable="@drawable/progress_vie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBarSatiete"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="100dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="10dp"
+        android:max="90"
+        android:min="0"
+        android:progress="90"
+        android:progressDrawable="@drawable/progress_satiete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarVie" />
+
+    <ProgressBar
+        android:id="@+id/progressBarHydra"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="100dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="10dp"
+        android:max="90"
+        android:min="0"
+        android:progress="90"
+        android:progressDrawable="@drawable/progress_hydra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

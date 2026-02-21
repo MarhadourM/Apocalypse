@@ -56,6 +56,9 @@ class FinPartiDialog(private val context: Context) {
 
         val closebtn = dialog.findViewById<Button>(R.id.buttonFermer)
         closebtn.setOnClickListener {
+            if (Partie.isFirstPartie){
+                Partie.isFirstPartie = false
+            }
             val intent = Intent(context, MainActivity::class.java)
             context.startActivity(intent)
             Partie.reset()
