@@ -1,5 +1,10 @@
 package com.example.apocalypse.Game
-
+/**
+ * Représente le joueur et ses ressources principales.
+ *
+ * Gère les points de vie, d'hydratation et de satiété, ainsi que le nom.
+ * Applique automatiquement les règles de jeu (mort, pénalité si ressources à 0).
+ */
 object Joueur {
 
     private var ptsVie: Int = 30
@@ -8,13 +13,14 @@ object Joueur {
     private var nom: String = "Partik"
 
 
-
+    /** Indique si le joueur est mort (plus de points de vie). */
     fun isDead(): Boolean = ptsVie <= 0
 
     fun getPtsVie() = ptsVie
     fun setPtsVie(ptsVie: Int) {
         if (ptsVie <= 0) {
             this.ptsVie = 0
+            // La mort du joueur déclenche la fin de partie
             Partie.declancherFindeparti()
         }else if (ptsVie>30){
             this.ptsVie = 30
@@ -27,6 +33,7 @@ object Joueur {
     fun setPtsHydra(ptsHydra: Int) {
         if (ptsHydra < 0) {
             this.ptsHydra = 0
+            // Si hydratation tombe à 0, le joueur perd 2 PV
             this.setPtsVie(this.ptsVie - 2)
         }else if (ptsHydra>30){
             this.ptsHydra = 30
@@ -39,6 +46,7 @@ object Joueur {
     fun setPtsSatiete(ptsSatiete: Int) {
         if (ptsSatiete < 0) {
             this.ptsSatiete = 0
+            // Si Satiete tombe à 0, le joueur perd 2 PV
             this.setPtsVie(this.ptsVie - 2)
         }else if (ptsSatiete>30){
             this.ptsSatiete = 30
@@ -53,6 +61,7 @@ object Joueur {
         this.nom = nom
     }
 
+    /** Réinitialise le joueur pour une nouvelle partie. */
     fun reset() {
         this.setPtsVie(30)
         this.setPtsHydra(20)

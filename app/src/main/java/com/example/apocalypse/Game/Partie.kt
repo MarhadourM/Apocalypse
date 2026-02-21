@@ -13,7 +13,13 @@ import kotlinx.coroutines.delay
 import java.util.logging.Handler
 
 
+
+//Permet d'avoir un attribut static. Ici Context
 @SuppressLint("StaticFieldLeak")
+/**
+ * Gère l'état global de la partie (jour courant, action en cours, fin de partie, etc.).
+ * Singleton accessible depuis toutes les Activities.
+ */
 object Partie {
 
     lateinit var currentContext: Context
@@ -30,7 +36,10 @@ object Partie {
 
 
 
-
+    /**
+     * A la création de l'application
+     *
+     */
 
     init{
         this.journees = ArrayList<Jour>()
@@ -47,6 +56,9 @@ object Partie {
         initParti()
     }
 
+    /**
+     * Création des Jours, Actions, Cartes Bonus,
+     */
     private fun initParti() {
 
 
@@ -188,8 +200,17 @@ object Partie {
 
     }
 
-    //actionfinit  met à jour l'etat pour que la view sache quelle est le view suivante
-    //TODO  mettre des bons commentaires
+    /**
+     * Applique les modifications nessesaires sur les currents Jour et Action.
+     *
+     * @param
+     * @return Unit.
+     *
+     * Effets de bord :
+     * - passe le jour suivant si c'était la dernière action
+     * - appelle declancherFindeparti() si c'est la fin du jeu
+     * - passe à l'action suivante si ce n'étais pas la dernière action du jour
+     */
 
     private fun actionFinit() {
         //Si c'est la dernière Action du Jour
@@ -216,7 +237,16 @@ object Partie {
     }
 
 
-
+    /**
+     * Applique le résultat d'un lancer de dés à l'action en cours.
+     *
+     * @param i Résultat du lancer (somme des dés).
+     * @return true si le lancer atteint la cible de l'action (succès), false sinon.
+     *
+     * Effets de bord :
+     * - applique le bonus ou le malus de l'action à l'état du joueur/monde
+     * - appelle actionFinit() si la partie n'est pas déjà en état FINPARTI
+     */
     fun lancéeDesFait(i : Int) : Boolean{
         val succes = i >= currentAction.getAction().getCible()
         if (succes){

@@ -1,21 +1,21 @@
 package com.example.apocalypse
 
-import android.annotation.SuppressLint
-import android.content.Intent
+
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
 import com.example.apocalypse.R.*
-
+/**
+ * Écran qui affiche l'action en cours
+ *
+ * Montre la description de l'action, sa cible,
+ * puis envoie vers l'écran de lancer de dés.
+ */
 class ActionView: BaseActivity() {
 
     lateinit var tvChoixCarteBonus: TextView
@@ -27,11 +27,6 @@ class ActionView: BaseActivity() {
     lateinit var tvModificateurBonus : TextView
 
     lateinit var tvModificateurMalus : TextView
-
-
-
-
-
 
 
 
@@ -59,17 +54,17 @@ class ActionView: BaseActivity() {
         tvModificateurMalus = findViewById(R.id.tvModificateurMalus)
 
 
-
-        val mode = intent.getStringExtra("Choix")
-
+        //si c'est la Première action, Affiche le choix qui a été fait
+        val choix = intent.getStringExtra("Choix")
         if(Partie.currentActionIndex == 1){
-            setTextTvChoixCarte(mode)
+            setTextTvChoixCarte(choix)
         }else{
             tvChoixCarteBonus.visibility = View.GONE
         }
 
 
         buttonLancerDes.setOnClickListener {
+            //Modification de l'Etat de la Partie en LancesDes et ouvre l'écran associé
             Partie.etatLancerDes()
             createIntent(this, LancerDesSensor::class.java)
         }

@@ -1,5 +1,7 @@
 package com.example.apocalypse.Game
-
+/**
+ * Représente une Action que le Joueur va effectuer
+ */
 class Action {
     private  val cible : Int
     private val desc: String
@@ -15,10 +17,6 @@ class Action {
         this.bonus = bonus
         this.malus = malus
     }
-
-
-
-
 
     fun getCible(): Int {
         return cible

@@ -1,5 +1,11 @@
 package com.example.apocalypse.Game
 
+/**
+ * Bonus appliqué au Joueur quand il dépasse la Cible.
+ *
+ * Un Bonus est un modificateur donc on ajoute les attributsModifier
+ */
+
 open class Bonus(desc: String, attributsModifier: HashMap<Attribut, Int>) : Modificateur( desc, attributsModifier) {
 
     override fun appliquerModificateur(){

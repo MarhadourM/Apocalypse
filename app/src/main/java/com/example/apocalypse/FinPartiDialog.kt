@@ -15,14 +15,16 @@ import com.example.apocalypse.Game.Attribut
 import com.example.apocalypse.Game.EtatJeu
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
-
+/**
+ * Dialog plein écran affiché en fin de partie (mort ou victoire).
+ *
+ * Masque les barres système, affiche la cause de fin.
+ */
 class FinPartiDialog(private val context: Context) {
     val dialog = Dialog(context)
     lateinit var  llCauseFinParti : LinearLayout
 
     fun show() {
-        Log.i("dialog","dans la methode show ")
-        Log.i("dialog","context"+ Partie.currentContext)
         dialog.setContentView(R.layout.fin_parti)
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
@@ -43,6 +45,7 @@ class FinPartiDialog(private val context: Context) {
         }
         llCauseFinParti = dialog.findViewById<LinearLayout>(R.id.llCauseFinParti)
         val inflater = LayoutInflater.from(context)
+        // Choisit le layout mort / victoire selon l'état du joueur
         if(Joueur.isDead()){
             val itemView = inflater.inflate(R.layout.fin_parti_mort, llCauseFinParti, false)
             llCauseFinParti.addView(itemView)
@@ -50,8 +53,6 @@ class FinPartiDialog(private val context: Context) {
             val itemView = inflater.inflate(R.layout.fin_parti_victoire, llCauseFinParti, false)
             llCauseFinParti.addView(itemView)
         }
-
-
 
 
         val closebtn = dialog.findViewById<Button>(R.id.buttonFermer)

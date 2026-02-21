@@ -13,7 +13,11 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Jour
 import com.example.apocalypse.Game.Partie
-
+/**
+ * Écran de choix du bonus en début de jour.
+ *
+ * Affiche deux cartes bonus et applique celle choisie avant de passer à l'écran d'action.
+ */
 class ChoixBonusView : BaseActivity()  {
 
     lateinit var ivCarteBonus1: ImageView
@@ -30,9 +34,12 @@ class ChoixBonusView : BaseActivity()  {
         controller.hide(WindowInsetsCompat.Type.systemBars())
         controller.systemBarsBehavior =
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+
         Partie.currentContext = this
+
         ivCarteBonus1 = findViewById(R.id.ivCarteBonus1)
         ivCarteBonus2 = findViewById(R.id.ivCarteBonus2)
+
         // init attributs joueur
         tvPtsVie = findViewById(R.id.tvPtsVie)
         tvPtsHydra = findViewById(R.id.tvPtsHydra)
@@ -42,13 +49,12 @@ class ChoixBonusView : BaseActivity()  {
 
     }
 
-    //initialisation de la Page
     override fun onStart() {
         super.onStart()
         updateUI()
         displayCarte()
     }
-    //Affichage des Cartes Bonus
+    /**Affichage des Cartes Bonus + Instantiation du OnClick*/
     private fun displayCarte() {
         var j : Jour = Partie.currentJour
         var carte1 = j.getCartes()[0]
@@ -56,7 +62,6 @@ class ChoixBonusView : BaseActivity()  {
 
         ivCarteBonus1.setImageResource(carte1.getImageID())
         ivCarteBonus2.setImageResource(carte2.getImageID())
-
 
 
         ivCarteBonus1.setOnClickListener {

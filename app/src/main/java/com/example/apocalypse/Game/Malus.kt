@@ -1,5 +1,9 @@
 package com.example.apocalypse.Game
-
+/**
+ * Malus appliqué au Joueur quand le lancer de dés est en dessous de la Cible.
+ *
+ * Un Malus est un modificateur donc on soustrait les attributsModifier
+ */
 class Malus(desc: String, attributsModifier: HashMap<Attribut, Int>) : Modificateur(desc, attributsModifier) {
 
     override fun appliquerModificateur() {
