@@ -39,7 +39,7 @@
         android:background="@drawable/paper_background"
         android:text="Passer Règles"
         android:textColor="#000000"
-        android:visibility="gone"
+        android:visibility="visible"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="@+id/buttonRegleSuivante"
         app:layout_constraintStart_toStartOf="@+id/buttonRegleSuivante"

@@ -1,4 +1,7 @@
 package com.example.apocalypse.Game
+
+import android.content.Context
+
 /**
  * Représente le joueur et ses ressources principales.
  *
@@ -10,7 +13,8 @@ object Joueur {
     private var ptsVie: Int = 30
     private var ptsHydra: Int = 20
     private var ptsSatiete: Int = 20
-    private var nom: String = "Partik"
+
+
 
 
     /** Indique si le joueur est mort (plus de points de vie). */
@@ -56,9 +60,9 @@ object Joueur {
     }
 
 
-    fun getNom() = nom
-    fun setNom(nom: String) {
-        this.nom = nom
+    fun getNom(context: Context) = Sauvgarde.getSauvJoueurNom(context)
+    fun setNom(context: Context, nom: String) {
+        Sauvgarde.setSauvJoueurNom(context,nom)
     }
 
     /** Réinitialise le joueur pour une nouvelle partie. */

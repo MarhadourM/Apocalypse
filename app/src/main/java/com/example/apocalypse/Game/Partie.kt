@@ -32,7 +32,8 @@ object Partie {
      var currentActionIndex  : Int  = 1
 
      lateinit var currentAction  : Choix
-     var isFirstPartie : Boolean = true
+     //TODO A modifier pour teste quand les  regles seront implementers
+     var isFirstPartie : Boolean = false
 
 
 
