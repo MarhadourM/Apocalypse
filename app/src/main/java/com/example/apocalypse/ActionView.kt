@@ -2,6 +2,7 @@ package com.example.apocalypse
 
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -9,6 +10,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.Partie
+import com.example.apocalypse.Game.Partie.currentContext
 import com.example.apocalypse.R.*
 /**
  * Écran qui affiche l'action en cours
@@ -61,6 +63,14 @@ class ActionView: BaseActivity() {
         }else{
             tvChoixCarteBonus.visibility = View.GONE
         }
+
+
+        object : CountDownTimer(3000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {}
+            override fun onFinish() {
+                buttonLancerDes.visibility = View.VISIBLE
+            }
+        }.start()
 
 
         buttonLancerDes.setOnClickListener {

@@ -40,8 +40,8 @@
         android:id="@+id/ivDe1"
         android:layout_width="126dp"
         android:layout_height="173dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:srcCompat="@drawable/dice_1" />
@@ -50,8 +50,8 @@
         android:id="@+id/ivDe2"
         android:layout_width="126dp"
         android:layout_height="173dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:srcCompat="@drawable/dice_1" />
@@ -60,7 +60,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="140dp"
         android:text="Secouez vorte téléphone "
         android:textSize="16sp"
         android:textStyle="bold"
@@ -72,9 +72,9 @@
         android:id="@+id/clBonusMalus"
         android:layout_width="410dp"
         android:layout_height="167dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivDe2">
 
@@ -92,7 +92,7 @@
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,5 +109,15 @@
         app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clBonusMalus" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="85dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/shake_phone_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,8 @@ import kotlin.apply
 class MainActivity : BaseActivity() {
     lateinit var buttonSurvivre: Button
     lateinit var etName: EditText
-    lateinit var tvName: TextView
+    lateinit var tvNbParties: TextView
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +42,7 @@ class MainActivity : BaseActivity() {
         //init
         buttonSurvivre = findViewById(R.id.buttonSurvivre)
         etName = findViewById(R.id.etName)
-        tvName = findViewById(R.id.tvName)
-
+        tvNbParties = findViewById(R.id.tvNbParties)
 
         etName.setOnEditorActionListener { view, i, event ->
             if (i == EditorInfo.IME_ACTION_DONE) {
@@ -77,8 +77,9 @@ class MainActivity : BaseActivity() {
     }
 
     fun displaySauvgarde() {
-        tvName.text = Joueur.getNom(this)
         etName.setText(Joueur.getNom(this))
+        val nbParties =  "Nombre de Parties Joués :" + Sauvgarde.getSauvNbPartie(this).toString()
+        tvNbParties.text = nbParties
     }
 
     fun initNomJoueur() {

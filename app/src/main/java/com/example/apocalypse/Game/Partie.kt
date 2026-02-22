@@ -28,12 +28,14 @@ object Partie {
 
     var etatJeu : EtatJeu = EtatJeu.MENU
     private var currentJourIndex  : Int  = 0
-     lateinit  var currentJour  : Jour
-     var currentActionIndex  : Int  = 1
+    lateinit  var currentJour  : Jour
+    var currentActionIndex  : Int  = 1
 
-     lateinit var currentAction  : Choix
+    lateinit var currentAction  : Choix
      //TODO A modifier pour teste quand les  regles seront implementers
-     var isFirstPartie : Boolean = false
+    var isFirstPartie : Boolean = false
+
+    private lateinit var  cartes  : MutableList<Carte>
 
 
 
@@ -67,7 +69,7 @@ object Partie {
         * Création des Actions 1
         * */
         val actionJC1 = Action(
-            6, "Vous vous baladez dans la foret et vous tombez sur un abris de Fortune vous rentez dans la Grotte",
+            12, "Vous vous baladez dans la foret et vous tombez sur un abris de Fortune vous rentez dans la Grotte",
             Bonus( "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SATIETE] = 0
@@ -76,7 +78,7 @@ object Partie {
             Malus(
                 "Vous tombez sur un grotte toxique",
                 HashMap<Attribut, Int>().apply {
-                     this[Attribut.VIE] = 5
+                     this[Attribut.VIE] = 30
                      this[Attribut.SATIETE] = 0
                      this[Attribut.HYDRA] = 0
                  })
@@ -170,12 +172,10 @@ object Partie {
             R.drawable.carteconserve
         )
 
-        val cartes = ArrayList<Carte>()
-
         cartes.add(carteJC1)
         cartes.add(carteJC2)
 
-        val jour1 = Jour(choixJC1, choixJC2, choixJC3, choixJC4, cartes)
+        val jour1 = Jour(choixJC1, choixJC2, choixJC3, choixJC4, //TODO)
 
         journees.add(jour1)
         //ajout du jour actuelle
@@ -269,10 +269,12 @@ object Partie {
     fun declancherFindeparti() {
 
         etatJeu = EtatJeu.FINPARTI
+        Sauvgarde.addSauvNbParties(currentContext)
+
 
         Toast.makeText(currentContext,  "FIN DE PARTI" , Toast.LENGTH_LONG).show()
 
-
+        //Attend 2 secondes avant d'afficher l'ecran de fin
         object : CountDownTimer(2000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {

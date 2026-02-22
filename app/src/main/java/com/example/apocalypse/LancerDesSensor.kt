@@ -145,9 +145,6 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
                     buttonSuivant.visibility = View.VISIBLE
                 }
 
-
-
-                //TODO afficher le titre et description malus
             }
 
         }

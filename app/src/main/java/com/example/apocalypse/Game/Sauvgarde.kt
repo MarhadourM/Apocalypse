@@ -1,6 +1,7 @@
 package com.example.apocalypse.Game
 
 import android.content.Context
+import android.util.Log
 import androidx.preference.Preference
 import androidx.preference.PreferenceManager
 
@@ -23,5 +24,24 @@ object Sauvgarde {
     fun isSauvJoueurNomCreated(context: Context): Boolean {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         return preferences.contains("name")
+    }
+
+    fun addSauvNbParties(context: Context){
+        Log.i("sauv","paser dans addSauvNbPartie")
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor  =  preferences.edit()
+        if(!preferences.contains("nbParties")){
+            editor.putInt("nbParties", 1)
+        }else{
+            editor.putInt("nbParties", preferences.getInt("nbParties",1)+1)
+        }
+        editor.apply()
+    }
+
+    fun getSauvNbPartie(context: Context):Int{
+        Log.i("sauv","paser dans getSauvNbPartie")
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val nb = preferences.getInt("nbParties", 0)
+        return nb
     }
 }
