@@ -23,7 +23,7 @@ import java.util.logging.Handler
 object Partie {
 
     lateinit var currentContext: Context
-    private val journees: ArrayList<Jour>
+    private var journees: ArrayList<Jour>
     private val malusjournee: Modificateur
 
     var etatJeu : EtatJeu = EtatJeu.MENU
@@ -31,11 +31,13 @@ object Partie {
     lateinit  var currentJour  : Jour
     var currentActionIndex  : Int  = 1
 
+    val colorPicker  = CartePicker()
+
     lateinit var currentAction  : Choix
      //TODO A modifier pour teste quand les  regles seront implementers
     var isFirstPartie : Boolean = false
 
-    private lateinit var  cartes  : MutableList<Carte>
+
 
 
 
@@ -46,7 +48,6 @@ object Partie {
 
     init{
         this.journees = ArrayList<Jour>()
-
         // malusjournee:  Dans le jeu la nuit est considere comme un malus
         malusjournee = Malus(
             "Vous venez de vous reveillez à cause de la faim et et de la soif qui vous tiraillent le ventre",
@@ -63,6 +64,7 @@ object Partie {
      * Création des Jours, Actions, Cartes Bonus,
      */
     private fun initParti() {
+        this.journees = ArrayList<Jour>()
 
 
         /* JOUR 1
@@ -148,36 +150,14 @@ object Partie {
         val choixJC3 = Choix(actionJC3,lancer)
         val choixJC4 = Choix(actionJC4,lancer)
 
-        //Création des cartes Bonus pour le jour 1
-        val carteJC1 = Carte(
-            "Bouteille d'eau",
-            "Vous avez un bouteille d'eau",
-             HashMap<Attribut, Int>().apply {
-                 this[Attribut.VIE] = 0
-                 this[Attribut.SATIETE] = 0
-                 this[Attribut.HYDRA] = 5
-             },
-            Rarete.COMMUN,
-            R.drawable.cartebouteille
-        )
-        val carteJC2 = Carte(
-            "Boite de Conserve",
-            "Vous avez un boîte de conserve",
-             HashMap<Attribut, Int>().apply {
-                 this[Attribut.VIE] = 0
-                 this[Attribut.SATIETE] = 5
-                 this[Attribut.HYDRA] = 0
-             },
-            Rarete.COMMUN,
-            R.drawable.carteconserve
-        )
 
-        cartes.add(carteJC1)
-        cartes.add(carteJC2)
 
-        val jour1 = Jour(choixJC1, choixJC2, choixJC3, choixJC4, //TODO)
 
+
+        val jour1 = Jour(choixJC1, choixJC2, choixJC3, choixJC4,colorPicker.pickCartes())
         journees.add(jour1)
+
+
         //ajout du jour actuelle
         currentJourIndex = 0
         currentJour = journees[0]

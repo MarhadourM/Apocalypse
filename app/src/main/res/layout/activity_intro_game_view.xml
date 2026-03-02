@@ -76,27 +76,15 @@
         app:layout_constraintTop_toTopOf="@+id/bgImage" />
 
     <ProgressBar
-        android:id="@+id/progressBarVie"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="100dp"
-        android:layout_height="12dp"
-        android:layout_marginTop="52dp"
-        android:max="90"
-        android:min="0"
-        android:progress="90"
-        android:progressDrawable="@drawable/progress_vie"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
         android:id="@+id/progressBarSatiete"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="100dp"
-        android:layout_height="12dp"
-        android:layout_marginTop="10dp"
-        android:max="90"
+        android:layout_width="140dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:max="120"
         android:min="0"
-        android:progress="90"
+        android:progress="120"
         android:progressDrawable="@drawable/progress_satiete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBarVie" />
@@ -104,15 +92,31 @@
     <ProgressBar
         android:id="@+id/progressBarHydra"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="100dp"
-        android:layout_height="12dp"
-        android:layout_marginTop="10dp"
-        android:max="90"
+        android:layout_width="140dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:max="120"
         android:min="0"
-        android:progress="90"
+        android:progress="120"
         android:progressDrawable="@drawable/progress_hydra"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete" />
+
+    <ProgressBar
+        android:id="@+id/progressBarVie"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/progress_background"
+        android:max="120"
+        android:min="0"
+        android:progress="120"
+        android:progressDrawable="@drawable/progress_vie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
