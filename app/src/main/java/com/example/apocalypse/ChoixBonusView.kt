@@ -41,9 +41,9 @@ class ChoixBonusView : BaseActivity()  {
         ivCarteBonus2 = findViewById(R.id.ivCarteBonus2)
 
         // init attributs joueur
-        tvPtsVie = findViewById(R.id.tvPtsVie)
-        tvPtsHydra = findViewById(R.id.tvPtsHydra)
-        tvPtsSasiete = findViewById(R.id.tvPtsSasiete)
+        tvPtsVie = findViewById(R.id.progressBarVie2)
+        tvPtsHydra = findViewById(R.id.progressBarHydra2)
+        tvPtsSasiete = findViewById(R.id.progressBarSatiete2)
 
 
 

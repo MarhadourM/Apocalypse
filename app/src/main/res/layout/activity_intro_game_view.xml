@@ -80,8 +80,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="140dp"
         android:layout_height="13dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
         android:max="120"
         android:min="0"
         android:progress="120"
@@ -94,8 +94,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="140dp"
         android:layout_height="13dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
         android:max="120"
         android:min="0"
         android:progress="120"
@@ -108,7 +108,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="140dp"
         android:layout_height="13dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="22dp"
         android:layout_marginTop="96dp"
         android:background="@drawable/progress_background"
         android:max="120"
@@ -117,6 +117,33 @@
         android:progressDrawable="@drawable/progress_vie"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coeur" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete"
+        app:srcCompat="@drawable/goutte" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarVie"
+        app:srcCompat="@drawable/conserve" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

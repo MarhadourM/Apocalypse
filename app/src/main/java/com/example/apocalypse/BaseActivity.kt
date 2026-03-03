@@ -2,6 +2,7 @@ package com.example.apocalypse
 
 import android.content.Context
 import android.content.Intent
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
@@ -12,15 +13,15 @@ import com.example.apocalypse.Game.Joueur
  * et fournit des helpers pour la navigation.
  */
 open class BaseActivity : AppCompatActivity() {
-    lateinit var tvPtsVie : TextView
-    lateinit var tvPtsHydra : TextView
-    lateinit var tvPtsSasiete : TextView
+    lateinit var tvPtsVie : ProgressBar
+    lateinit var tvPtsHydra : ProgressBar
+    lateinit var tvPtsSasiete : ProgressBar
 
     /** Met à jour l'affichage des points de vie, d'hydratation et de satiété. */
      fun updateUI() {
-        tvPtsVie.text ="Vie :"+ Joueur.getPtsVie().toString()
-        tvPtsHydra.text = "Hydratation : "+ Joueur.getPtsHydra().toString()
-        tvPtsSasiete.text = "Nourriture : "+ Joueur.getPtsSatiete().toString()
+        tvPtsVie.progress = Joueur.getPtsVie()*4
+        tvPtsHydra.progress = Joueur.getPtsHydra()*4
+        tvPtsSasiete.progress = Joueur.getPtsSatiete()*4
     }
 
 
