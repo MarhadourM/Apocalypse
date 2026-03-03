@@ -1,6 +1,7 @@
 package com.example.apocalypse
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
@@ -32,6 +33,7 @@ class ActionView: BaseActivity() {
 
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(layout.action_view)
@@ -44,10 +46,9 @@ class ActionView: BaseActivity() {
         tvChoixCarteBonus = findViewById(id.tvChoixCarteBonus)
         buttonLancerDes  = findViewById(id.buttonLancerDes)
 
-        tvPtsVie = findViewById(id.tvPtsVie2)
-        tvPtsHydra = findViewById(id.tvPtsHydra2)
-        tvPtsSasiete = findViewById(id.tvPtsSasiete2)
-
+        tvPtsVie = findViewById(id.progressBarVie3)
+        tvPtsSasiete = findViewById(id.progressBarSatiete3)
+        tvPtsHydra = findViewById(id.progressBarHydra3)
         //init des TextView Lié à l'action
         tvDescriptionAction = findViewById(id.tvDescriptionAction)
         tvCible = findViewById(id.tvCible)

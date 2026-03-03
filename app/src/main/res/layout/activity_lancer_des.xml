@@ -8,33 +8,81 @@
     android:visibility="visible"
     tools:context=".LancerDesSensor">
 
-    <TextView
-        android:id="@+id/tvPtsVie3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:text="Vie"
+
+
+    <ProgressBar
+        android:id="@+id/progressBarHydra4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/progress_background"
+        android:max="120"
+        android:min="0"
+        android:progress="120"
+        android:progressDrawable="@drawable/progress_hydra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarSatiete4" />
+    <ImageView
+        android:id="@+id/goutte4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarSatiete4"
+        app:srcCompat="@drawable/goutte" />
+
+    <ProgressBar
+        android:id="@+id/progressBarSatiete4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="141dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/progress_background"
+        android:max="120"
+        android:min="0"
+        android:progress="120"
+        android:progressDrawable="@drawable/progress_satiete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarVie4" />
+
+    <ImageView
+        android:id="@+id/conserve4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarVie4"
+        app:srcCompat="@drawable/conserve" />
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBarVie4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/progress_background"
+        android:max="120"
+        android:min="0"
+        android:progress="120"
+        android:progressDrawable="@drawable/progress_vie"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvPtsSasiete3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Nourriture"
-        app:layout_constraintStart_toStartOf="@+id/tvPtsHydra3"
-        app:layout_constraintTop_toBottomOf="@+id/tvPtsHydra3" />
-
-    <TextView
-        android:id="@+id/tvPtsHydra3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Hydratation"
-        app:layout_constraintStart_toStartOf="@+id/tvPtsVie3"
-        app:layout_constraintTop_toBottomOf="@+id/tvPtsVie3" />
+    <ImageView
+        android:id="@+id/coeur4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coeur" />
 
     <ImageView
         android:id="@+id/ivDe1"

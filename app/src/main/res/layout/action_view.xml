@@ -6,43 +6,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvPtsVie2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:text="Vie"
+    <ProgressBar
+        android:id="@+id/progressBarVie3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="156dp"
+        android:background="@drawable/progress_background"
+        android:max="120"
+        android:min="0"
+        android:progress="120"
+        android:progressDrawable="@drawable/progress_vie"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvPtsHydra2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Hydratation"
-        app:layout_constraintStart_toStartOf="@+id/tvPtsVie2"
-        app:layout_constraintTop_toBottomOf="@+id/tvPtsVie2" />
+    <ProgressBar
+        android:id="@+id/progressBarSatiete3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="141dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/progress_background"
+        android:max="120"
+        android:min="0"
+        android:progress="120"
+        android:progressDrawable="@drawable/progress_satiete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarVie3" />
 
-    <TextView
-        android:id="@+id/tvPtsSasiete2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Nourriture"
-        app:layout_constraintStart_toStartOf="@+id/tvPtsHydra2"
-        app:layout_constraintTop_toBottomOf="@+id/tvPtsHydra2" />
+
+    <ImageView
+        android:id="@+id/conserve3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarVie3"
+        app:srcCompat="@drawable/conserve" />
+
+    <ProgressBar
+        android:id="@+id/progressBarHydra3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/progress_background"
+        android:max="120"
+        android:min="0"
+        android:progress="120"
+        android:progressDrawable="@drawable/progress_hydra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarVie3" />
+    <ImageView
+        android:id="@+id/goutte3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete3"
+        app:srcCompat="@drawable/goutte" />
+
+    <ImageView
+        android:id="@+id/coeur3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coeur" />
 
     <Button
         android:id="@+id/buttonLancerDes"
         android:layout_width="169dp"
         android:layout_height="97dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="250dp"
         android:text="Lancer les Dés"
         android:textSize="24sp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction" />
 
@@ -50,10 +95,10 @@
         android:id="@+id/tvChoixCarteBonus"
         android:layout_width="220dp"
         android:layout_height="63dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="104dp"
         android:text="Vous avez choisi "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.984"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,14 +111,14 @@
         android:id="@+id/tvDescriptionAction"
         android:layout_width="364dp"
         android:layout_height="94dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="101dp"
         android:text="Description Action"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPtsSasiete2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvChoixCarteBonus" />
 
     <TextView
         android:id="@+id/tvCible"

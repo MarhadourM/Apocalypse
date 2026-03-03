@@ -119,7 +119,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/coeur"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="80dp"
@@ -128,7 +128,7 @@
         app:srcCompat="@drawable/coeur" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/goutte"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
@@ -138,7 +138,7 @@
         app:srcCompat="@drawable/goutte" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/conserve"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"

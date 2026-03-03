@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/coeur2"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="140dp"
@@ -36,6 +36,7 @@
     <ProgressBar
         android:id="@+id/progressBarSatiete2"
         style="?android:attr/progressBarStyleHorizontal"
+        android:background="@drawable/progress_background"
         android:layout_width="141dp"
         android:layout_height="16dp"
         android:layout_marginStart="20dp"
@@ -49,7 +50,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/conserve2"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
@@ -60,6 +61,7 @@
     <ProgressBar
         android:id="@+id/progressBarHydra2"
         style="?android:attr/progressBarStyleHorizontal"
+        android:background="@drawable/progress_background"
         android:layout_width="140dp"
         android:layout_height="13dp"
         android:layout_marginStart="20dp"
@@ -72,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete2" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/goutte2"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"

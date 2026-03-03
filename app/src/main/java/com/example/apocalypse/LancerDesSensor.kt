@@ -62,9 +62,9 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
 
 
         // init attributs joueur
-        tvPtsVie = findViewById(R.id.tvPtsVie3)
-        tvPtsHydra = findViewById(R.id.tvPtsHydra3)
-        tvPtsSasiete = findViewById(R.id.tvPtsSasiete3)
+        tvPtsVie = findViewById(R.id.progressBarVie4)
+        tvPtsHydra = findViewById(R.id.progressBarHydra4)
+        tvPtsSasiete = findViewById(R.id.progressBarSatiete4)
 
         //init Dés
         imageViewDe1 = findViewById(R.id.ivDe1)

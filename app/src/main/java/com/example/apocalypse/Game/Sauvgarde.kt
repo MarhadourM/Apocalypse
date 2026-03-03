@@ -11,7 +11,6 @@ object Sauvgarde {
     fun setSauvJoueurNom(context: Context,nom: String){
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         val editor  =  preferences.edit()
-
         editor.putString("name", nom)
         editor.apply()
     }
@@ -27,7 +26,6 @@ object Sauvgarde {
     }
 
     fun addSauvNbParties(context: Context){
-        Log.i("sauv","paser dans addSauvNbPartie")
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         val editor  =  preferences.edit()
         if(!preferences.contains("nbParties")){
@@ -39,7 +37,6 @@ object Sauvgarde {
     }
 
     fun getSauvNbPartie(context: Context):Int{
-        Log.i("sauv","paser dans getSauvNbPartie")
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         val nb = preferences.getInt("nbParties", 0)
         return nb
