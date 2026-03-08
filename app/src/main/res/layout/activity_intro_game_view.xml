@@ -39,7 +39,7 @@
         android:background="@drawable/paper_background"
         android:text="Passer Règles"
         android:textColor="#000000"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="@+id/buttonRegleSuivante"
         app:layout_constraintStart_toStartOf="@+id/buttonRegleSuivante"
@@ -48,7 +48,7 @@
     <Button
         android:id="@+id/buttonRegleSuivante"
         android:layout_width="152dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="168dp"
         android:background="@drawable/paper_background"
         android:text="Regle Suivante"
@@ -58,22 +58,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="386dp"
-        android:layout_height="121dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="284dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/parchemin"
-        android:fontFamily="@font/crimson_text"
-        android:padding="3dp"
-        android:text="Vous etes maintenant patrik et vous venez de sortir pour la dernière fois du Bunker-antiatomique  "
-        android:textColor="#3E2723"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bgImage" />
 
     <ProgressBar
         android:id="@+id/progressBarSatiete"
@@ -144,6 +128,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBarVie"
         app:srcCompat="@drawable/conserve" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarHydra">
+
+        <LinearLayout
+            android:id="@+id/llRegles"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

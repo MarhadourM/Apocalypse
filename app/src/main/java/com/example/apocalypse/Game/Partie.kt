@@ -34,8 +34,7 @@ object Partie {
     val colorPicker  = CartePicker()
 
     lateinit var currentAction  : Choix
-     //TODO A modifier pour teste quand les  regles seront implementers
-    var isFirstPartie : Boolean = false
+    var isFirstPartie : Boolean = true
 
 
 
