@@ -111,14 +111,14 @@
         android:id="@+id/tvDescriptionAction"
         android:layout_width="364dp"
         android:layout_height="94dp"
-        android:layout_marginTop="101dp"
+        android:layout_marginTop="29dp"
         android:text="Description Action"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvChoixCarteBonus" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBarHydra3" />
 
     <TextView
         android:id="@+id/tvCible"
