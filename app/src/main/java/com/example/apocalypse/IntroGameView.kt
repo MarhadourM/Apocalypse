@@ -18,7 +18,7 @@ class IntroGameView : BaseActivity() {
     lateinit var  buttonPasserRegles : Button
     lateinit var  buttonRegleSuivante : Button
 
-    var RessourcesRegles = arrayOf(R.layout.regle1,R.layout.regle2 ,R.layout.regle3,R.layout.regle4)
+    var RessourcesRegles = arrayOf(R.layout.regle1,R.layout.regle2 ,R.layout.regle3,R.layout.regle4,R.layout.regle5)
     var iRegle = 0
 
     lateinit var llRegles  : LinearLayout
@@ -64,7 +64,7 @@ class IntroGameView : BaseActivity() {
         val itemView = inflater.inflate(RessourcesRegles[iRegle], llRegles, false)
         llRegles.addView(itemView)
 
-        if (iRegle==3){
+        if (iRegle==4){
             buttonRegleSuivante.visibility = View.INVISIBLE
             buttonPasserRegles.visibility = View.VISIBLE
             iRegle = 0

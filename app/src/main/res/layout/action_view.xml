@@ -12,7 +12,7 @@
         android:layout_width="140dp"
         android:layout_height="13dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/progress_background"
         android:max="120"
         android:min="0"
@@ -74,7 +74,7 @@
         android:id="@+id/coeur3"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="34dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/coeur" />
@@ -111,7 +111,7 @@
         android:id="@+id/tvDescriptionAction"
         android:layout_width="364dp"
         android:layout_height="94dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="59dp"
         android:text="Description Action"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -132,46 +132,48 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="36dp"
-        android:text="Bonus"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvCible"
-        app:layout_constraintTop_toTopOf="@+id/tvCible" />
-
-    <TextView
-        android:id="@+id/tvMalusAction"
-        android:layout_width="72dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:text="Malus"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/tvCible"
-        app:layout_constraintTop_toTopOf="@+id/tvCible" />
-
-    <TextView
         android:id="@+id/tvModificateurBonus"
         android:layout_width="144dp"
         android:layout_height="78dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="5dp"
         android:text="TextView"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/tvModificateurMalus"
         android:layout_width="144dp"
         android:layout_height="78dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="6dp"
         android:text="TextView"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/tvMalusAction"
-        app:layout_constraintStart_toStartOf="@+id/tvMalusAction"
-        app:layout_constraintTop_toBottomOf="@+id/tvMalusAction" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="103dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvCible"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/bonus_icon" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="103dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvCible"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/malus_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
