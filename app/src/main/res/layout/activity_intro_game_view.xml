@@ -34,7 +34,7 @@
     <Button
         android:id="@+id/buttonPasserRegles"
         android:layout_width="152dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/paper_background"
         android:text="Passer Règles"
@@ -48,7 +48,7 @@
     <Button
         android:id="@+id/buttonRegleSuivante"
         android:layout_width="152dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="168dp"
         android:background="@drawable/paper_background"
         android:text="@string/regle_suivante"

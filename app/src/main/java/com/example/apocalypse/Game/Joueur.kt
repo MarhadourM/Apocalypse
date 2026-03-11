@@ -28,6 +28,7 @@ object Joueur {
             Partie.declancherFindeparti()
         }else if (ptsVie>30){
             this.ptsVie = 30
+
         } else {
             this.ptsVie = ptsVie
         }
@@ -41,6 +42,7 @@ object Joueur {
             this.setPtsVie(this.ptsVie - 2)
         }else if (ptsHydra>30){
             this.ptsHydra = 30
+            this.ptsVie +=2
         }else {
             this.ptsHydra = ptsHydra
         }
@@ -54,6 +56,7 @@ object Joueur {
             this.setPtsVie(this.ptsVie - 2)
         }else if (ptsSatiete>30){
             this.ptsSatiete = 30
+            this.ptsVie +=2
         } else {
             this.ptsSatiete = ptsSatiete
         }

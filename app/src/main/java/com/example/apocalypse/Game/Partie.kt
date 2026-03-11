@@ -51,6 +51,7 @@ object Partie {
         }
             )
         initParti()
+
     }
 
     /**
@@ -58,6 +59,7 @@ object Partie {
      */
     private fun initParti() {
         this.journees = ArrayList<Jour>()
+
 
 
         // ==========================================
@@ -485,7 +487,7 @@ object Partie {
         //Si c'est la dernière Action du Jour
         if (currentActionIndex == 4){
             //si c'est le dernier Jour
-            if(currentJourIndex == 2){
+            if(currentJourIndex == 3){
                 declancherFindeparti()
             }else{
                 Log.i("partie", currentJourIndex.toString())
@@ -559,6 +561,13 @@ object Partie {
         initParti()
         etatJeu = EtatJeu.MENU
         Joueur.reset()
+    }
+    fun updateIsFirstPartie(){
+        if (Sauvgarde.getSauvNbPartie(currentContext) >=1){
+            isFirstPartie = false
+        }else{
+            isFirstPartie = true
+        }
     }
 
 

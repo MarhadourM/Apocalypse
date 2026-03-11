@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
+import com.example.apocalypse.Game.Partie.updateIsFirstPartie
 
 class IntroGameView : BaseActivity() {
 
@@ -43,6 +44,7 @@ class IntroGameView : BaseActivity() {
             regleSuivante()
         }
         regleSuivante()
+        Partie.updateIsFirstPartie()
 
         buttonPasserRegles.setOnClickListener {
             Partie.finIntro()
