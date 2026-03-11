@@ -489,6 +489,7 @@ object Partie {
                 declancherFindeparti()
             }else{
                 Log.i("partie", currentJourIndex.toString())
+                malusjournee.appliquerModificateur()
                 currentJourIndex ++
                 currentJour = journees[currentJourIndex]
                 currentActionIndex = 1

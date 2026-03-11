@@ -2,6 +2,7 @@ package com.example.apocalypse
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,8 @@ open class BaseActivity : AppCompatActivity() {
         tvPtsVie.progress = Joueur.getPtsVie()*4
         tvPtsHydra.progress = Joueur.getPtsHydra()*4
         tvPtsSasiete.progress = Joueur.getPtsSatiete()*4
+        val result = "Hydratation : ${Joueur.getPtsHydra()}, Satiété : ${Joueur.getPtsSatiete()}, Vie : ${Joueur.getPtsVie()}"
+        Log.i("Attribut",result)
     }
 
 
