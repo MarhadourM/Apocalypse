@@ -90,7 +90,7 @@ class ActionView: BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        updateUI()
+        displayAttributs()
         displayAction()
     }
 

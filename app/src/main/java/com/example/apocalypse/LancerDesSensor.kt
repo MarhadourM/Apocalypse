@@ -98,7 +98,7 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
-        updateUI()
+        displayAttributs()
     }
     //mise a jour des attributs du Joueur
 

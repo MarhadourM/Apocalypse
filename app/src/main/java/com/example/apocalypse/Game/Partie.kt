@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Toast
+import com.example.apocalypse.ActionView
 import com.example.apocalypse.FinPartiDialog
 
 
@@ -491,13 +492,19 @@ object Partie {
                 declancherFindeparti()
             }else{
                 Log.i("partie", currentJourIndex.toString())
-                malusjournee.appliquerModificateur()
+
                 currentJourIndex ++
                 currentJour = journees[currentJourIndex]
                 currentActionIndex = 1
                 currentAction = currentJour.getAction(currentActionIndex)
                 //Application du Malus de la nuit
-                malusjournee.appliquerModificateur()
+                object : CountDownTimer(800, 10) {
+                    override fun onTick(millisUntilFinished: Long) {}
+                    override fun onFinish() {
+                        malusjournee.appliquerModificateur()
+                        Toast.makeText(currentContext,  "Fin de journée" , Toast.LENGTH_LONG).show()
+                    }
+                }.start()
                 //Jour suivant = Carte bonus
                 etatJeu = EtatJeu.CHOIXBONUS
             }

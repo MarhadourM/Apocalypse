@@ -2,6 +2,7 @@ package com.example.apocalypse
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Jour
 import com.example.apocalypse.Game.Partie
+import com.example.apocalypse.Game.Partie.currentContext
 import com.example.apocalypse.Game.Rarete
 
 /**
@@ -26,6 +28,7 @@ class ChoixBonusView : BaseActivity()  {
     lateinit var ivCarteBonus2: ImageView
     lateinit var rareter1: ImageView
     lateinit var rareter2: ImageView
+    val context = this
 
     var backgroudRareter = arrayOf(R.drawable.commun,R.drawable.rare,R.drawable.legendaire)
 
@@ -60,7 +63,7 @@ class ChoixBonusView : BaseActivity()  {
 
     override fun onStart() {
         super.onStart()
-        updateUI()
+        displayAttributs()
         displayCarte()
     }
     /**Affichage des Cartes Bonus + Instantiation du OnClick*/
@@ -92,12 +95,25 @@ class ChoixBonusView : BaseActivity()  {
         ivCarteBonus1.setOnClickListener {
             Partie.choixBonusFait()
             j.appliquerChoix(carte1)
-            createActionIntent(this, ActionView::class.java,carte1.getTitre())
+            updateUI()
+            object : CountDownTimer(1000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {}
+                override fun onFinish() {
+                    createActionIntent(context, ActionView::class.java,carte1.getTitre())
+                }
+            }.start()
+
         }
         ivCarteBonus2.setOnClickListener {
             Partie.choixBonusFait()
             j.appliquerChoix(carte2)
-            createActionIntent(this, ActionView::class.java,carte2.getTitre())
+            updateUI()
+            object : CountDownTimer(1000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {}
+                override fun onFinish() {
+                    createActionIntent(context, ActionView::class.java,carte2.getTitre())
+                }
+            }.start()
         }
 
 
