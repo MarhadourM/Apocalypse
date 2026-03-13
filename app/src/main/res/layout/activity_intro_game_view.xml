@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".IntroGameView">
 
-
+    <!-- Image de fond -->
     <ImageView
         android:id="@+id/bgImage"
         android:layout_width="0dp"
@@ -19,32 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <View
-        android:id="@+id/whiteOverlay"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#B3FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/buttonPasserRegles"
-        android:layout_width="152dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/paper_background"
-        android:text="Passer Règles"
-        android:textColor="#000000"
-        android:visibility="invisible"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/buttonRegleSuivante"
-        app:layout_constraintStart_toStartOf="@+id/buttonRegleSuivante"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegleSuivante" />
-
+    <!-- Bouton Règles Suivantes -->
     <Button
         android:id="@+id/buttonRegleSuivante"
         android:layout_width="152dp"
@@ -59,94 +34,129 @@
         app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBarSatiete"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="140dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="20dp"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_satiete"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarVie" />
-
-    <ProgressBar
-        android:id="@+id/progressBarHydra"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="140dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="20dp"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_hydra"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete" />
-
-    <ProgressBar
-        android:id="@+id/progressBarVie"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="140dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="96dp"
-        android:background="@drawable/progress_background"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_vie"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/coeur"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coeur" />
-
-    <ImageView
-        android:id="@+id/goutte"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete"
-        app:srcCompat="@drawable/goutte" />
-
-    <ImageView
-        android:id="@+id/conserve"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarVie"
-        app:srcCompat="@drawable/conserve" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="386dp"
+    <!-- Bouton Passer Règles -->
+    <Button
+        android:id="@+id/buttonPasserRegles"
+        android:layout_width="152dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/paper_background"
+        android:text="Passer Règles"
+        android:textColor="#000000"
+        android:visibility="invisible"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/buttonRegleSuivante"
+        app:layout_constraintStart_toStartOf="@+id/buttonRegleSuivante"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegleSuivante" />
+
+    <!-- Boîte Glassmorphism Centrale -->
+
+    <!-- Layout des Règles (placé au-dessus de tout) -->
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassAttribut1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarHydra">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/llRegles"
-            android:layout_width="384dp"
+        <!-- Conteneur interne de la boîte Glass -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginRight="10dp">
 
+            <!-- Jauges de statut -->
+            <ProgressBar
+                android:id="@+id/progressBarVie"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/progress_background"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:progressDrawable="@drawable/progress_vie"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ProgressBar
+                android:id="@+id/progressBarSatiete"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:progressDrawable="@drawable/progress_satiete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarVie" />
+
+            <ProgressBar
+                android:id="@+id/progressBarHydra"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="15dp"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:progressDrawable="@drawable/progress_hydra"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete" />
+
+            <!-- Icônes des jauges -->
+            <ImageView
+                android:id="@+id/coeur"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/coeur" />
+
+            <ImageView
+                android:id="@+id/conserve"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarVie"
+                app:srcCompat="@drawable/conserve" />
+
+            <ImageView
+                android:id="@+id/goutte"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete"
+                app:srcCompat="@drawable/goutte" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout> <!-- FIN du conteneur interne du BlurView -->
+    </eightbitlab.com.blurview.BlurView>
+
+    <LinearLayout
+        android:id="@+id/llRegles"
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glassAttribut1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout> <!-- FIN du Layout Principal -->

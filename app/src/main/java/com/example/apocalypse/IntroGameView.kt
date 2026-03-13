@@ -5,14 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
+import androidx.core.view.TintableBackgroundView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
 import com.example.apocalypse.Game.Partie.updateIsFirstPartie
+import eightbitlab.com.blurview.BlurView
 
 class IntroGameView : BaseActivity() {
 
@@ -21,6 +24,7 @@ class IntroGameView : BaseActivity() {
 
     var RessourcesRegles = arrayOf(R.layout.regle1,R.layout.regle2 ,R.layout.regle3,R.layout.regle4,R.layout.regle5)
     var iRegle = 0
+    lateinit var  backgroundView: ImageView
 
     lateinit var llRegles  : LinearLayout
 
@@ -56,6 +60,14 @@ class IntroGameView : BaseActivity() {
         }else{
             buttonPasserRegles.visibility = View.VISIBLE
         }
+        val glassAttribut = findViewById<BlurView>(R.id.glassAttribut1)
+        backgroundView = findViewById<ImageView>(R.id.bgImage)
+
+        setupDynamicGlassmorphism(this,glassAttribut,backgroundView,5f,153)
+
+
+
+
 
 
     }

@@ -2,9 +2,7 @@ package com.example.apocalypse
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -12,13 +10,10 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.*
-import kotlin.apply
 
 class MainActivity : BaseActivity() {
     lateinit var buttonSurvivre: Button
@@ -40,7 +35,7 @@ class MainActivity : BaseActivity() {
 
         Partie.currentContext = this
         //init
-        buttonSurvivre = findViewById(R.id.buttonSurvivre)
+        buttonSurvivre = findViewById(R.id.buttonSurvivre2)
         etName = findViewById(R.id.etName)
         tvNbParties = findViewById(R.id.tvNbParties)
 
@@ -65,7 +60,7 @@ class MainActivity : BaseActivity() {
 
         buttonSurvivre.setOnClickListener {
             Partie.demarrerParti()
-            createIntent(this, IntroGameView::class.java)
+            createIntent(this, test::class.java)
         }
 
     }

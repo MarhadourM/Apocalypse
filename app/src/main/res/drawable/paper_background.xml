@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item>
+    <!-- L'ombre portée -->
+    <item android:top="4dp" android:left="2dp">
         <shape android:shape="rectangle">
-            <solid android:color="#22000000" />
-            <corners android:radius="14dp" />
+            <solid android:color="#40000000" />
+            <corners android:radius="8dp" />
         </shape>
     </item>
 
-    <item android:bottom="2dp" android:right="2dp">
+    <!-- Le corps du bouton (sa couleur sera remplacée par le Kotlin) -->
+    <item android:bottom="4dp" android:right="2dp">
         <shape android:shape="rectangle">
-            <stroke
-                android:width="3dp"
-                android:color="#5D4037" /> <corners android:radius="12dp" />
+            <!-- Couleur temporaire (Gris foncé) pour voir le bouton dans l'éditeur -->
+            <solid android:color="#4A4A4A" />
+            <!-- Bordure foncée -->
+            <stroke android:width="2dp" android:color="#1A1A1A" />
+            <corners android:radius="8dp" />
         </shape>
     </item>
 
-    <item android:bottom="4dp" android:right="4dp" android:top="2dp" android:left="2dp">
+    <!-- Léger reflet en haut pour l'effet "bouton physique" -->
+    <item android:bottom="6dp" android:right="4dp" android:top="2dp" android:left="2dp">
         <shape android:shape="rectangle">
             <gradient
-                android:type="radial"
-                android:gradientRadius="200dp"
-                android:startColor="#F9F4E8"
-                android:endColor="#D7B98E"
-                android:centerX="50%"
-                android:centerY="50%" />
-
-            <corners android:radius="10dp" />
-
-            <padding
-                android:left="16dp"
-                android:top="8dp"
-                android:right="16dp"
-                android:bottom="8dp" />
+                android:angle="270"
+                android:startColor="#33FFFFFF"
+                android:endColor="#00FFFFFF" />
+            <corners android:radius="6dp" />
         </shape>
     </item>
 

@@ -44,7 +44,7 @@ object Partie {
         this.journees = ArrayList<Jour>()
         // malusjournee:  Dans le jeu la nuit est considere comme un malus
         malusjournee = Malus(
-            "Vous venez de vous reveillez à cause de la faim et et de la soif qui vous tiraillent le ventre",
+            "Vous venez de vous reveiller à cause de la faim et et de la soif qui vous tiraillent le ventre",
              HashMap<Attribut, Int>().apply {
             this[Attribut.VIE] = 0
             this[Attribut.SATIETE] = 5
@@ -67,7 +67,7 @@ object Partie {
         // JOURNEE CHAMPGNION
         // ==========================================
         val actionJC1 = Action(
-            8, "Vous vous baladez dans la foret et vous tombez sur un abris de Fortune vous rentez dans la Grotte",
+            8, "Vous vous baladez dans la fôret et vous tombez sur un abris de fortune. Vous rentez dans la Grotte",
             Bonus( "Vous avez trouvez de l'eau ",  HashMap<Attribut, Int>(3).apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SATIETE] = 0
@@ -83,16 +83,16 @@ object Partie {
         )
 
         val actionJC2 = Action(
-            6, "Dans la foret vous trouver des champignons que vous etudiez puis mangez",
+            6, "Dans la fôret, vous trouvez des champignons que vous étudiez puis mangez",
             Bonus(
-                "Votre analyse semble bonne vous n'etes pas malade",
+                "Votre analyse semble bonne vous n'êtes pas malade",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 0
                      this[Attribut.SATIETE] = 4
                      this[Attribut.HYDRA] = 0
                  }),
             Malus(
-                "l'espece du champignion vous à échapper, vous avez une intoxication",
+                "l'espèce du champignon vous a échappé, vous avez une intoxication",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 4
                      this[Attribut.SATIETE] = 2
@@ -102,14 +102,14 @@ object Partie {
 
         val actionJC3 = Action(
             6,
-            "Vous avez trouvez un champignon vous decidez de l'etudier,le champignion  semble avoir un proprieter filtrante",
-            Bonus( "Creation d'un filtre ",  HashMap<Attribut, Int>().apply {
+            "Vous avez trouvé un champignon vous décidez de l'étudier. Le champignon semble avoir une propriété filtrante",
+            Bonus( "Création d'un filtre ",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 8
             }),
             Malus(
-                "Creation d'un filtre mais vous buvez avec un troupeau d'elephants roses",
+                "Création d'un filtre mais vous buvez avec un troupeau d'éléphants roses",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 3
                      this[Attribut.SATIETE] = 0
@@ -118,14 +118,14 @@ object Partie {
         )
         val actionJC4 = Action(
             6,
-            "Grace au fiole que vous avez sur vous vous recolter un spore  pour l'etudier si vous trouvez une ville",
+            "Grâce aux fioles que vous avez sur vous, vous récoltez une spore pour l'étudier si vous trouvez une ville",
             Bonus( "Extraction reussite",  HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 5
                 this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 0
             }),
             Malus(
-                "echec de l'extraction,il est toxique mais votre corps s'y habitue ",
+                "Echec de l'extraction, il est toxique mais votre corps s'y habitue ",
                  HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 2
                      this[Attribut.SATIETE] = 0
