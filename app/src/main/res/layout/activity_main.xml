@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-
+    <!-- Image de fond -->
     <ImageView
         android:id="@+id/bgImage"
         android:layout_width="0dp"
@@ -20,64 +18,68 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <View
-        android:id="@+id/whiteOverlay"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#B3FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassBox"
+        android:layout_width="314dp"
+        android:layout_height="334dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Un ConstraintLayout interne pour placer les éléments dans la boîte -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:text="Name"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNbParties"
+                android:layout_width="259dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
+                app:layout_constraintStart_toStartOf="@+id/etName"
+                app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eightbitlab.com.blurview.BlurView>
 
     <Button
         android:id="@+id/buttonSurvivre2"
         android:layout_width="156dp"
         android:layout_height="63dp"
-
         android:layout_marginBottom="36dp"
         android:background="@drawable/paper_background"
         android:gravity="center"
         android:letterSpacing="0.05"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-
-        android:padding="0dp"
         android:text="@string/survivre"
-        android:textColor="#3B2A14"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvNbParties"
-        android:layout_width="259dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="65dp"
-        android:text="TextView"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/etName"
-        app:layout_constraintStart_toStartOf="@+id/etName"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

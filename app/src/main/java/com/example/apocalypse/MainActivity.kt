@@ -7,6 +7,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -14,11 +15,13 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.*
+import eightbitlab.com.blurview.BlurView
 
 class MainActivity : BaseActivity() {
     lateinit var buttonSurvivre: Button
     lateinit var etName: EditText
     lateinit var tvNbParties: TextView
+    lateinit var backgroundView : ImageView
 
 
     @SuppressLint("MissingInflatedId")
@@ -60,8 +63,13 @@ class MainActivity : BaseActivity() {
 
         buttonSurvivre.setOnClickListener {
             Partie.demarrerParti()
-            createIntent(this, test::class.java)
+            createIntent(this, IntroGameView::class.java)
         }
+        val glassBox = findViewById<BlurView>(R.id.glassBox)
+        backgroundView = findViewById(R.id.bgImage)
+        setupDynamicGlassmorphism(this,glassBox,backgroundView, 5f,153)
+
+        colorizeButtonFromBackground(buttonSurvivre,backgroundView)
 
     }
 

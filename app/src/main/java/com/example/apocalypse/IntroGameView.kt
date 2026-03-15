@@ -65,6 +65,9 @@ class IntroGameView : BaseActivity() {
 
         setupDynamicGlassmorphism(this,glassAttribut,backgroundView,5f,153)
 
+        colorizeButtonFromBackground(buttonPasserRegles,backgroundView)
+        colorizeButtonFromBackground(buttonRegleSuivante,backgroundView)
+
 
 
 

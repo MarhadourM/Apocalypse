@@ -135,16 +135,19 @@ open class BaseActivity : AppCompatActivity() {
                     // On applique la couleur extraite du fond !
                     bodyShape.setColor(dominantColor)
 
-                    // Optionnel : on peut aussi rendre la bordure encore plus foncée
-                    // val darkerBorder = getDarkerColor(dominantColor, 0.5f)
-                    // bodyShape.setStroke(4, darkerBorder)
-
+                    val lighterBorder = getLighterColor(dominantColor, 0.5f) // 50% de blanc
+                    bodyShape.setStroke(2, lighterBorder)
                     // On force la mise à jour visuelle
                     button.background = layerDrawable
                     button.invalidate()
                 }
             }
         }
+    }
+
+    fun getLighterColor(color: Int, ratio: Float = 0.4f): Int {
+        // blendARGB fait une transition fluide entre la couleur de base et le BLANC
+        return ColorUtils.blendARGB(color, Color.WHITE, ratio)
     }
 
 

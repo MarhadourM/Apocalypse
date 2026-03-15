@@ -15,7 +15,7 @@
             <!-- Couleur temporaire (Gris foncé) pour voir le bouton dans l'éditeur -->
             <solid android:color="#4A4A4A" />
             <!-- Bordure foncée -->
-            <stroke android:width="2dp" android:color="#1A1A1A" />
+            <stroke android:width="2dp" android:color="#D2B48C" />
             <corners android:radius="8dp" />
         </shape>
     </item>
