@@ -41,6 +41,8 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
     lateinit var buttonSuivant: Button
     lateinit var  currentAction :Choix
 
+    lateinit var background : ImageView
+
 
 
 
@@ -77,6 +79,9 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
 
         //init contraint Layout
         llBonusMalus = findViewById(R.id.llBonusMalus)
+
+        background = findViewById(R.id.background2)
+        background.setImageResource(Partie.currentJour.getBackgroundRessources())
 
         currentAction= Partie.currentAction
 

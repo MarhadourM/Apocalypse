@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -30,6 +31,7 @@ class ActionView: BaseActivity() {
     lateinit var tvModificateurBonus : TextView
 
     lateinit var tvModificateurMalus : TextView
+    lateinit var background : ImageView
 
 
 
@@ -55,6 +57,10 @@ class ActionView: BaseActivity() {
         //init des TextView Lié au Bonus et au Malus de l'action
         tvModificateurBonus = findViewById(R.id.tvModificateurBonus)
         tvModificateurMalus = findViewById(R.id.tvModificateurMalus)
+
+        background = findViewById(R.id.background3)
+
+        background.setImageResource(Partie.currentJour.getBackgroundRessources())
 
 
         //si c'est la Première action, Affiche le choix qui a été fait

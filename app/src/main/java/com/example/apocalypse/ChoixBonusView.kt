@@ -1,21 +1,18 @@
 package com.example.apocalypse
 
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Jour
 import com.example.apocalypse.Game.Partie
-import com.example.apocalypse.Game.Partie.currentContext
 import com.example.apocalypse.Game.Rarete
+import eightbitlab.com.blurview.BlurView
 
 /**
  * Écran de choix du bonus en début de jour.
@@ -28,6 +25,9 @@ class ChoixBonusView : BaseActivity()  {
     lateinit var ivCarteBonus2: ImageView
     lateinit var rareter1: ImageView
     lateinit var rareter2: ImageView
+
+    lateinit var  background: ImageView
+    lateinit var tvjour: TextView
     val context = this
 
     var backgroudRareter = arrayOf(R.drawable.commun,R.drawable.rare,R.drawable.legendaire)
@@ -35,6 +35,7 @@ class ChoixBonusView : BaseActivity()  {
 
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -51,12 +52,29 @@ class ChoixBonusView : BaseActivity()  {
         ivCarteBonus2 = findViewById(R.id.ivCarteBonus2)
         rareter1 = findViewById(R.id.rarete1)
         rareter2 = findViewById(R.id.rarete2)
+        background = findViewById(R.id.background2)
 
         // init attributs joueur
         tvPtsVie = findViewById(R.id.progressBarVie2)
         tvPtsHydra = findViewById(R.id.progressBarHydra2)
         tvPtsSasiete = findViewById(R.id.progressBarSatiete2)
 
+        tvjour = findViewById(R.id.tvJour)
+
+
+        background.setImageResource(Partie.currentJour.getBackgroundRessources())
+        val titleView = findViewById<BlurView>(R.id.glassTitle)
+        val attributView = findViewById<BlurView>(R.id.glassAttribut2)
+        val glassInstruction  = findViewById<BlurView>(R.id.glassInstruction)
+        val glassCard1 =findViewById<BlurView>(R.id.glassCard1)
+        val glassCard2 =findViewById<BlurView>(R.id.glassCard2)
+
+
+        setupDynamicGlassmorphism(this,titleView,background, 5f , 153)
+        setupDynamicGlassmorphism(this,attributView,background, 5f , 153)
+        setupDynamicGlassmorphism(this,glassCard1,background,5f,153)
+        setupDynamicGlassmorphism(this,glassCard2,background,5f,153)
+        setupDynamicGlassmorphism(this,glassInstruction,background,5f,153)
 
 
     }
@@ -65,6 +83,7 @@ class ChoixBonusView : BaseActivity()  {
         super.onStart()
         displayAttributs()
         displayCarte()
+        displayTvJour()
     }
     /**Affichage des Cartes Bonus + Instantiation du OnClick*/
     private fun displayCarte() {
@@ -117,6 +136,12 @@ class ChoixBonusView : BaseActivity()  {
         }
 
 
+    }
+
+    private fun displayTvJour(){
+        val i = Partie.currentJourIndex +1
+        val currentDay = "Jour $i"
+        tvjour.text = currentDay
     }
 
 

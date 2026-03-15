@@ -5,8 +5,10 @@ import android.content.Context
 import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Toast
+import com.example.apocalypse.R
 import com.example.apocalypse.ActionView
 import com.example.apocalypse.FinPartiDialog
+
 
 
 //Permet d'avoir un attribut static. Ici Context
@@ -22,7 +24,7 @@ object Partie {
     private val malusjournee: Modificateur
 
     var etatJeu : EtatJeu = EtatJeu.MENU
-    private var currentJourIndex  : Int  = 0
+    var currentJourIndex  : Int  = 0
     lateinit  var currentJour  : Jour
     var currentActionIndex  : Int  = 1
 
@@ -146,7 +148,7 @@ object Partie {
         val choixJC3 = Choix(actionJC3,lancer)
         val choixJC4 = Choix(actionJC4,lancer)
 
-        val jour1 = Jour(choixJC1, choixJC2, choixJC3, choixJC4,cartePicker.pickCartes())
+        val jour1 = Jour(choixJC1, choixJC2, choixJC3, choixJC4,cartePicker.pickCartes(),R.drawable.background_menu)
         journees.add(jour1)
 
         // ==========================================
@@ -244,7 +246,7 @@ object Partie {
         val choixVA4 = Choix(actionVA4, lancer)
 
         // Création du Jour et ajout à la liste
-        val jourVA = Jour(choixVA1, choixVA2, choixVA3, choixVA4, cartePicker.pickCartes())
+        val jourVA = Jour(choixVA1, choixVA2, choixVA3, choixVA4, cartePicker.pickCartes(),R.drawable.background_ville)
         journees.add(jourVA)
 
 
@@ -345,7 +347,7 @@ object Partie {
         val choixVASuite4 = Choix(actionVASuite4, lancer)
 
         // Création du Jour et ajout à la liste
-        val jourVASuite = Jour(choixVASuite1, choixVASuite2, choixVASuite3, choixVASuite4, cartePicker.pickCartes())
+        val jourVASuite = Jour(choixVASuite1, choixVASuite2, choixVASuite3, choixVASuite4, cartePicker.pickCartes(),R.drawable.background_ville)
         journees.add(jourVASuite)
 
         // ==========================================
@@ -443,7 +445,7 @@ object Partie {
         val choixHM4 = Choix(actionHM4, lancer)
 
 // Création du Jour et ajout à la liste
-        val jourHM = Jour(choixHM1, choixHM2, choixHM3, choixHM4, cartePicker.pickCartes())
+        val jourHM = Jour(choixHM1, choixHM2, choixHM3, choixHM4, cartePicker.pickCartes(),R.drawable.background_hopital)
         journees.add(jourHM)
 
 

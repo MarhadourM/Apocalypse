@@ -7,159 +7,293 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-
-    <ProgressBar
-        android:id="@+id/progressBarVie2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="140dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="156dp"
-        android:background="@drawable/progress_background"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_vie"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
-        android:id="@+id/coeur2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="140dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/background2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/background_hopital"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coeur" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBarSatiete2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:background="@drawable/progress_background"
-        android:layout_width="141dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="20dp"
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassAttribut2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp">
+
+            <ProgressBar
+                android:id="@+id/progressBarVie2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/progress_background"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:progressDrawable="@drawable/progress_vie"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBarSatiete2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:background="@drawable/progress_background"
+                android:progressDrawable="@drawable/progress_satiete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarVie2" />
+
+            <ProgressBar
+                android:id="@+id/progressBarHydra2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="15dp"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:background="@drawable/progress_background"
+                android:progressDrawable="@drawable/progress_hydra"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete2" />
+
+
+            <ImageView
+                android:id="@+id/coeur"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/coeur" />
+
+            <ImageView
+                android:id="@+id/conserve"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarVie2"
+                app:srcCompat="@drawable/conserve" />
+
+            <ImageView
+                android:id="@+id/goutte"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete2"
+                app:srcCompat="@drawable/goutte" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eightbitlab.com.blurview.BlurView>
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_satiete"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarVie2" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <!-- On place le TextView à l'intérieur du BlurView avec un ConstraintLayout pour l'espacement -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:paddingStart="24dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="12dp">
 
-    <ImageView
-        android:id="@+id/conserve2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
+            <TextView
+                android:id="@+id/tvLeverSoleil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crimson_text"
+                android:text="Lever du soleil"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.32999998" />
+
+            <TextView
+                android:id="@+id/tvJour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/crimson_text"
+                android:text="Jour 1"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvLeverSoleil"
+                app:layout_constraintStart_toStartOf="@+id/tvLeverSoleil"
+                app:layout_constraintTop_toBottomOf="@+id/tvLeverSoleil" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </eightbitlab.com.blurview.BlurView>
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarVie2"
-        app:srcCompat="@drawable/conserve" />
+        app:layout_constraintTop_toBottomOf="@+id/glassAttribut2">
 
-    <ProgressBar
-        android:id="@+id/progressBarHydra2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:background="@drawable/progress_background"
-        android:layout_width="140dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_hydra"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete2" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
 
-    <ImageView
-        android:id="@+id/goutte2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+            <TextView
+                android:id="@+id/tvInstruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crimson_text"
+                android:text="Choisir une carte"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </eightbitlab.com.blurview.BlurView>
+
+
+    <!-- Conteneur Glassmorphism pour la Carte 1 -->
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassCard1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete2"
-        app:srcCompat="@drawable/goutte" />
+        app:layout_constraintTop_toBottomOf="@+id/glassInstruction">
 
-    <TextView
-        android:id="@+id/tvLeverSoleil"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"> <!-- Petit padding pour que le verre dépasse un peu de la carte -->
+
+            <ImageView
+                android:id="@+id/ivCarteBonus1"
+                android:layout_width="179dp"
+                android:layout_height="261dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cartbonus" />
+
+            <ImageView
+                android:id="@+id/rarete1"
+                android:layout_width="165dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ivCarteBonus1"
+                app:layout_constraintStart_toStartOf="@+id/ivCarteBonus1"
+                app:layout_constraintTop_toBottomOf="@+id/ivCarteBonus1"
+                app:srcCompat="@drawable/commun" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eightbitlab.com.blurview.BlurView>
+
+
+    <!-- Conteneur Glassmorphism pour la Carte 2 -->
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassCard2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:text="Lever du soleil"
-        android:textSize="34sp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/glassCard1"
+        app:layout_constraintTop_toBottomOf="@+id/glassInstruction">
 
-    <TextView
-        android:id="@+id/tvJour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Jour 1"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvLeverSoleil"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/tvLeverSoleil"
-        app:layout_constraintTop_toBottomOf="@+id/tvLeverSoleil" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
 
-    <TextView
-        android:id="@+id/tvInstruction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Choisir une carte"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvJour"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/tvJour"
-        app:layout_constraintTop_toBottomOf="@+id/tvJour" />
+            <ImageView
+                android:id="@+id/ivCarteBonus2"
+                android:layout_width="179dp"
+                android:layout_height="261dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cartbonus" />
 
-    <ImageView
-        android:id="@+id/ivCarteBonus1"
-        android:layout_width="179dp"
-        android:layout_height="261dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="85dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInstruction"
-        app:srcCompat="@drawable/cartbonus" />
+            <ImageView
+                android:id="@+id/rarete2"
+                android:layout_width="165dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ivCarteBonus2"
+                app:layout_constraintStart_toStartOf="@+id/ivCarteBonus2"
+                app:layout_constraintTop_toBottomOf="@+id/ivCarteBonus2"
+                app:srcCompat="@drawable/commun" />
 
-    <ImageView
-        android:id="@+id/ivCarteBonus2"
-        android:layout_width="179dp"
-        android:layout_height="261dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivCarteBonus1"
-        app:layout_constraintTop_toBottomOf="@+id/tvInstruction"
-        app:srcCompat="@drawable/cartbonus" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eightbitlab.com.blurview.BlurView>
 
-    <ImageView
-        android:id="@+id/rarete1"
-        android:layout_width="165dp"
-        android:layout_height="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/ivCarteBonus1"
-        app:layout_constraintStart_toStartOf="@+id/ivCarteBonus1"
-        app:layout_constraintTop_toBottomOf="@+id/ivCarteBonus1"
-        app:srcCompat="@drawable/commun" />
 
-    <ImageView
-        android:id="@+id/rarete2"
-        android:layout_width="165dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="28dp"
-        app:layout_constraintEnd_toEndOf="@+id/ivCarteBonus2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ivCarteBonus2"
-        app:layout_constraintTop_toBottomOf="@+id/ivCarteBonus2"
-        app:srcCompat="@drawable/commun" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

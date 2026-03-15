@@ -42,7 +42,7 @@ object Joueur {
             this.setPtsVie(this.ptsVie - 2)
         }else if (ptsHydra>30){
             this.ptsHydra = 30
-            this.ptsVie +=2
+            this.ptsVie +=5
         }else {
             this.ptsHydra = ptsHydra
         }
@@ -56,7 +56,7 @@ object Joueur {
             this.setPtsVie(this.ptsVie - 2)
         }else if (ptsSatiete>30){
             this.ptsSatiete = 30
-            this.ptsVie +=2
+            this.ptsVie +=5
         } else {
             this.ptsSatiete = ptsSatiete
         }

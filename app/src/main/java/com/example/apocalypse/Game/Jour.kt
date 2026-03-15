@@ -1,5 +1,7 @@
 package com.example.apocalypse.Game
 
+import androidx.appcompat.resources.R
+
 /**
  * Représente un jour de jeu avec plusieurs choix d'action et des cartes associées.
  *
@@ -13,19 +15,23 @@ class Jour {
     private val choix4: Choix
     private val cartes: ArrayList<Carte>
 
+    private   var backgroudR =0
+
 
     constructor (
         choix1: Choix,
         choix2: Choix,
         choix3: Choix,
         choix4: Choix,
-        cartes: ArrayList<Carte>
+        cartes: ArrayList<Carte>,
+        background:Int
     ) {
         this.choix1 = choix1
         this.choix2 = choix2
         this.choix3 = choix3
         this.choix4 = choix4
         this.cartes = cartes
+        this.backgroudR = background
     }
 
     /**
@@ -55,5 +61,9 @@ class Jour {
             else ->  return choix4
         }
 
+    }
+
+    fun getBackgroundRessources():Int{
+        return this.backgroudR
     }
 }
