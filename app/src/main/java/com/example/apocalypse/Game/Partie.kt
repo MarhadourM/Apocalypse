@@ -76,7 +76,7 @@ object Partie {
                 this[Attribut.HYDRA] = 5
         }),
             Malus(
-                "Vous tombez sur un grotte toxique",
+                "Vous tombez sur une grotte toxique",
                 HashMap<Attribut, Int>().apply {
                      this[Attribut.VIE] = 8
                      this[Attribut.SATIETE] = 0

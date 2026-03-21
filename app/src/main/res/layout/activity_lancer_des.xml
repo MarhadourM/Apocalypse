@@ -21,122 +21,168 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
-    <ProgressBar
-        android:id="@+id/progressBarHydra4"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="140dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/progress_background"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_hydra"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBarSatiete4" />
-    <ImageView
-        android:id="@+id/goutte4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBarSatiete4"
-        app:srcCompat="@drawable/goutte" />
-
-    <ProgressBar
-        android:id="@+id/progressBarSatiete4"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="141dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/progress_background"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_satiete"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBarVie4" />
-
-    <ImageView
-        android:id="@+id/conserve4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBarVie4"
-        app:srcCompat="@drawable/conserve" />
-
-
-
-    <ProgressBar
-        android:id="@+id/progressBarVie4"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="140dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/progress_background"
-        android:max="120"
-        android:min="0"
-        android:progress="120"
-        android:progressDrawable="@drawable/progress_vie"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/coeur4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="34dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coeur" />
-
-    <ImageView
-        android:id="@+id/ivDe1"
-        android:layout_width="126dp"
-        android:layout_height="173dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="112dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/dice_1" />
-
-    <ImageView
-        android:id="@+id/ivDe2"
-        android:layout_width="126dp"
-        android:layout_height="173dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/dice_1" />
-
-    <TextView
-        android:id="@+id/textView2"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassAttribut4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:text="Secouez vorte téléphone "
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp">
+
+            <ProgressBar
+                android:id="@+id/progressBarVie4"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/progress_background"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:progressDrawable="@drawable/progress_vie"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBarSatiete4"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/progress_background"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:progressDrawable="@drawable/progress_satiete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarVie4" />
+
+            <ProgressBar
+                android:id="@+id/progressBarHydra4"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/progress_background"
+                android:max="120"
+                android:min="0"
+                android:progress="120"
+                android:progressDrawable="@drawable/progress_hydra"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete4" />
+
+
+            <ImageView
+                android:id="@+id/coeur"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/coeur" />
+
+            <ImageView
+                android:id="@+id/conserve"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarVie4"
+                app:srcCompat="@drawable/conserve" />
+
+            <ImageView
+                android:id="@+id/goutte"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarSatiete4"
+                app:srcCompat="@drawable/goutte" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eightbitlab.com.blurview.BlurView>
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassDicePanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/glassShakePhone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
+
+            <ImageView
+                android:id="@+id/ivDe1"
+                android:layout_width="126dp"
+                android:layout_height="173dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/dice_1" />
+
+            <ImageView
+                android:id="@+id/ivDe2"
+                android:layout_width="126dp"
+                android:layout_height="173dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/dice_1" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crimson_text"
+                android:textColor="#F4F3F3"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivDe2"
+                app:layout_constraintStart_toEndOf="@+id/ivDe1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </eightbitlab.com.blurview.BlurView>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clBonusMalus"
-        android:layout_width="410dp"
-        android:layout_height="167dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivDe2">
+        app:layout_constraintTop_toBottomOf="@+id/glassDicePanel">
 
         <LinearLayout
             android:id="@+id/llBonusMalus"
@@ -148,36 +194,67 @@
             app:layout_constraintTop_toTopOf="parent"></LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/buttonSuivant"
         android:layout_width="203dp"
         android:layout_height="63dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:text="Action Suivante -> "
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clBonusMalus" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="85dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="13dp"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassShakePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/shake_phone_icon" />
+        app:layout_constraintStart_toEndOf="@+id/glassAttribut4"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secouez \n votre téléphone"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="85dp"
+                android:layout_height="86dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:srcCompat="@drawable/shake_phone_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </eightbitlab.com.blurview.BlurView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

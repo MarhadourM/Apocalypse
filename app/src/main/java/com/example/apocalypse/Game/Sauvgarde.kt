@@ -8,22 +8,6 @@ import androidx.preference.PreferenceManager
 object Sauvgarde {
 
 
-    fun setSauvJoueurNom(context: Context,nom: String){
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val editor  =  preferences.edit()
-        editor.putString("name", nom)
-        editor.apply()
-    }
-    fun getSauvJoueurNom(context: Context) : String {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val name = preferences.getString("name", "patrik") ?: "patrik"
-        return name
-    }
-
-    fun isSauvJoueurNomCreated(context: Context): Boolean {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.contains("name")
-    }
 
     fun addSauvNbParties(context: Context){
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)

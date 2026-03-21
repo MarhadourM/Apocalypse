@@ -19,7 +19,7 @@ import eightbitlab.com.blurview.BlurView
 
 class MainActivity : BaseActivity() {
     lateinit var buttonSurvivre: Button
-    lateinit var etName: EditText
+
     lateinit var tvNbParties: TextView
     lateinit var backgroundView : ImageView
 
@@ -39,27 +39,8 @@ class MainActivity : BaseActivity() {
         Partie.currentContext = this
         //init
         buttonSurvivre = findViewById(R.id.buttonSurvivre2)
-        etName = findViewById(R.id.etName)
         tvNbParties = findViewById(R.id.tvNbParties)
 
-        etName.setOnEditorActionListener { view, i, event ->
-            if (i == EditorInfo.IME_ACTION_DONE) {
-                val nom = etName.text.toString()
-                if (nom.isBlank()) {
-                    Toast.makeText(this, "Le nom ne peut pas être vide", Toast.LENGTH_SHORT).show()
-                } else {
-                    Joueur.setNom(this, nom)
-                    //cache le clavier quand le nom est validé
-                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(etName.windowToken, 0)
-                    etName.clearFocus()
-                    displaySauvgarde()
-                }
-                true
-            } else {
-                false
-            }
-        }
 
         buttonSurvivre.setOnClickListener {
             Partie.demarrerParti()
@@ -75,25 +56,14 @@ class MainActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        initNomJoueur()
         displaySauvgarde()
     }
 
     fun displaySauvgarde() {
-        etName.setText(Joueur.getNom(this))
-        val nbParties =  "Nombre de Parties Joués :" + Sauvgarde.getSauvNbPartie(this).toString()
+        val nbParties =  "Nombre de Parties Joués : " + Sauvgarde.getSauvNbPartie(this).toString()
         tvNbParties.text = nbParties
     }
 
-    fun initNomJoueur() {
-        if (!Sauvgarde.isSauvJoueurNomCreated(this)) {
-            val defaultName = "patrik"
-            etName.setText(defaultName)
-            Joueur.setNom(this, defaultName)
-        }
-
-
-    }
 }
 
 

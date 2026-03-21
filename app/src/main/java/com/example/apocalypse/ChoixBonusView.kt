@@ -55,9 +55,9 @@ class ChoixBonusView : BaseActivity()  {
         background = findViewById(R.id.background2)
 
         // init attributs joueur
-        tvPtsVie = findViewById(R.id.progressBarVie2)
-        tvPtsHydra = findViewById(R.id.progressBarHydra2)
-        tvPtsSasiete = findViewById(R.id.progressBarSatiete2)
+        tvPtsVie = findViewById(R.id.progressBarVie3)
+        tvPtsHydra = findViewById(R.id.progressBarHydra3)
+        tvPtsSasiete = findViewById(R.id.progressBarSatiete3)
 
         tvjour = findViewById(R.id.tvJour)
 

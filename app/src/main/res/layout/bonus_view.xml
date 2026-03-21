@@ -5,30 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvDescBonus"
-        android:layout_width="388dp"
-        android:layout_height="82dp"
-        android:autoText="true"
-        android:text="Bonus"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:autoSizeMaxTextSize="34dp"
-        app:autoSizeMinTextSize="12dp"
-        app:autoSizeTextType="uniform"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassBonusPanel"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tvBonusAttribut"
-        android:layout_width="127dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescBonus" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvDescBonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bonus"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:autoSizeMaxTextSize="34dp"
+                app:autoSizeMinTextSize="12dp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvBonusAttribut"
+                android:layout_width="201dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescBonus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </eightbitlab.com.blurview.BlurView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

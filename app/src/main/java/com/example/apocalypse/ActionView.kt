@@ -14,6 +14,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.example.apocalypse.Game.Partie
 import com.example.apocalypse.Game.Partie.currentContext
 import com.example.apocalypse.R.*
+import eightbitlab.com.blurview.BlurView
+
 /**
  * Écran qui affiche l'action en cours
  *
@@ -22,7 +24,6 @@ import com.example.apocalypse.R.*
  */
 class ActionView: BaseActivity() {
 
-    lateinit var tvChoixCarteBonus: TextView
     lateinit var buttonLancerDes : Button
 
 
@@ -32,6 +33,7 @@ class ActionView: BaseActivity() {
 
     lateinit var tvModificateurMalus : TextView
     lateinit var background : ImageView
+
 
 
 
@@ -45,7 +47,6 @@ class ActionView: BaseActivity() {
         controller.systemBarsBehavior =
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         Partie.currentContext=this
-        tvChoixCarteBonus = findViewById(id.tvChoixCarteBonus)
         buttonLancerDes  = findViewById(id.buttonLancerDes)
 
         tvPtsVie = findViewById(id.progressBarVie3)
@@ -62,17 +63,21 @@ class ActionView: BaseActivity() {
 
         background.setImageResource(Partie.currentJour.getBackgroundRessources())
 
+        var glassAttribut  = findViewById<BlurView>(R.id.glassAttribut3)
+        var bonusView = findViewById<BlurView>(R.id.glassBonusPanel)
+        var malusView = findViewById<BlurView>(R.id.glassMalusPanel)
+
+
+        setupDynamicGlassmorphism(this,glassAttribut,background,5f,153)
+        setupDynamicGlassmorphism(this,bonusView,background,5f,153)
+        setupDynamicGlassmorphism(this,malusView,background,5f,153)
+
+        colorizeButtonFromBackground(buttonLancerDes,background)
 
         //si c'est la Première action, Affiche le choix qui a été fait
-        val choix = intent.getStringExtra("Choix")
-        if(Partie.currentActionIndex == 1){
-            setTextTvChoixCarte(choix)
-        }else{
-            tvChoixCarteBonus.visibility = View.GONE
-        }
 
 
-        object : CountDownTimer(3000, 1000) {
+        object : CountDownTimer(2000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
                 buttonLancerDes.visibility = View.VISIBLE
@@ -86,11 +91,6 @@ class ActionView: BaseActivity() {
             createIntent(this, LancerDesSensor::class.java)
         }
 
-
-    }
-     fun setTextTvChoixCarte(txt: String?){
-         tvChoixCarteBonus.visibility = View.VISIBLE
-        tvChoixCarteBonus.text = "Vous avez Choisi "+txt
 
     }
 

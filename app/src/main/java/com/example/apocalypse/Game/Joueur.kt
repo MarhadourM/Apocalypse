@@ -63,10 +63,7 @@ object Joueur {
     }
 
 
-    fun getNom(context: Context) = Sauvgarde.getSauvJoueurNom(context)
-    fun setNom(context: Context, nom: String) {
-        Sauvgarde.setSauvJoueurNom(context,nom)
-    }
+
 
     /** Réinitialise le joueur pour une nouvelle partie. */
     fun reset() {

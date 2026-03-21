@@ -21,10 +21,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.get
 import com.example.apocalypse.Game.Choix
 import com.example.apocalypse.Game.EtatJeu
 import com.example.apocalypse.Game.Joueur
 import com.example.apocalypse.Game.Partie
+import eightbitlab.com.blurview.BlurView
 
 class LancerDesSensor : BaseActivity(), SensorEventListener {
 
@@ -96,7 +98,16 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
             }
 
         }
-        Log.i("EtatParti","Current Action  = "+ Partie.currentAction.getAction().getDesc() )
+
+        val attributGlass = findViewById<BlurView>(R.id.glassAttribut4)
+        val glassShakePhone = findViewById<BlurView>(R.id.glassShakePhone)
+        val glassDicePanel = findViewById<BlurView>(R.id.glassDicePanel)
+
+        setupDynamicGlassmorphism(this, attributGlass, background,5f,153)
+        setupDynamicGlassmorphism(this, glassDicePanel, background,5f,153)
+        setupDynamicGlassmorphism(this, glassShakePhone, background,5f,153)
+
+
 
     }
 
@@ -201,11 +212,13 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
         val itemView = inflater.inflate(R.layout.bonus_view, llBonusMalus, false)
         var tvDescBonus = itemView.findViewById<TextView>(R.id.tvDescBonus)
         var tvBonusAttribut = itemView.findViewById<TextView>(R.id.tvBonusAttribut)
+        val glassBonusPanel = itemView.findViewById<BlurView>(R.id.glassBonusPanel)
 
         tvDescBonus.text = currentAction.getAction().getBonus().getDesc()
         tvBonusAttribut.text = attributModifier
 
         llBonusMalus.addView(itemView)
+        setupDynamicGlassmorphism(this, glassBonusPanel, background, 5f, 153)
     }
 
     fun updateMalus(attributModifier : String){
@@ -214,11 +227,13 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
         val itemView = inflater.inflate(R.layout.malus_view, llBonusMalus, false)
         var tvDescMalus = itemView.findViewById<TextView>(R.id.tvDescMalus)
         var tvMalusAttribut = itemView.findViewById<TextView>(R.id.tvMalusAttribut)
+        val glassMalusPanel = itemView.findViewById<BlurView>(R.id.glassMalusPanel)
 
         tvDescMalus.text = currentAction.getAction().getMalus().getDesc()
         tvMalusAttribut.text = attributModifier
 
         llBonusMalus.addView(itemView)
+        setupDynamicGlassmorphism(this, glassMalusPanel, background, 5f, 153)
     }
 
 

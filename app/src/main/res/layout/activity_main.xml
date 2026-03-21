@@ -21,8 +21,8 @@
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/glassBox"
         android:layout_width="314dp"
-        android:layout_height="334dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:background="@drawable/bg_glass"
         android:clipToOutline="true"
         app:blurOverlayColor="#00000000"
@@ -35,32 +35,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/etName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:ems="10"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:text="Name"
-                android:textColor="#FFFFFF"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/tvNbParties"
-                android:layout_width="259dp"
-                android:layout_height="65dp"
-                android:layout_marginTop="32dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crimson_text"
                 android:gravity="center"
                 android:text="TextView"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/etName"
-                app:layout_constraintStart_toStartOf="@+id/etName"
-                app:layout_constraintTop_toBottomOf="@+id/etName" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eightbitlab.com.blurview.BlurView>
