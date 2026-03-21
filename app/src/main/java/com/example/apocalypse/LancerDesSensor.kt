@@ -107,6 +107,10 @@ class LancerDesSensor : BaseActivity(), SensorEventListener {
         setupDynamicGlassmorphism(this, glassDicePanel, background,5f,153)
         setupDynamicGlassmorphism(this, glassShakePhone, background,5f,153)
 
+        val buttonSuivant = findViewById<Button>(R.id.buttonSuivant)
+
+        colorizeButtonFromBackground(buttonSuivant, background)
+
 
 
     }

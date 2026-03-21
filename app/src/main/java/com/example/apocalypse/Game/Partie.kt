@@ -198,7 +198,7 @@ object Partie {
         )
 
         val actionVA3 = Action(
-            12,
+            10,
             "Vous trouvez un vieil émetteur radio. Vous tentez de le réparer.",
             Bonus(
                 "Réparation réussie. Il va falloir être prudent avec la recherche de signal ",
@@ -268,7 +268,7 @@ object Partie {
             Malus(
                 "La zone est instable, un plancher s'effondre sous votre poids.",
                 HashMap<Attribut, Int>().apply {
-                    this[Attribut.VIE] = 10
+                    this[Attribut.VIE] = 8
                     this[Attribut.SATIETE] = 0
                     this[Attribut.HYDRA] = 0
                 }
@@ -290,7 +290,7 @@ object Partie {
                 "Vous fouillez chaque étage mais ne trouvez rien. L'effort vous a affamé.",
                 HashMap<Attribut, Int>().apply {
                     this[Attribut.VIE] = 0
-                    this[Attribut.SATIETE] = 10
+                    this[Attribut.SATIETE] = 8
                     this[Attribut.HYDRA] = 0
                 }
             )
@@ -389,7 +389,7 @@ object Partie {
             Malus(
                 "Toute à déja été emporter avant la tempête",
                 HashMap<Attribut, Int>().apply {
-                    this[Attribut.VIE] = 10
+                    this[Attribut.VIE] = 8
                     this[Attribut.SATIETE] = 0
                     this[Attribut.HYDRA] = 0
                 }

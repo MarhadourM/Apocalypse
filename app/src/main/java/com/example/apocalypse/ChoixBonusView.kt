@@ -30,6 +30,8 @@ class ChoixBonusView : BaseActivity()  {
     lateinit var tvjour: TextView
     val context = this
 
+    var isChoixFait = false
+
     var backgroudRareter = arrayOf(R.drawable.commun,R.drawable.rare,R.drawable.legendaire)
 
 
@@ -112,27 +114,35 @@ class ChoixBonusView : BaseActivity()  {
 
 
         ivCarteBonus1.setOnClickListener {
-            Partie.choixBonusFait()
-            j.appliquerChoix(carte1)
-            updateUI()
-            object : CountDownTimer(1000, 1000) {
-                override fun onTick(millisUntilFinished: Long) {}
-                override fun onFinish() {
-                    createActionIntent(context, ActionView::class.java,carte1.getTitre())
-                }
-            }.start()
+            if (!isChoixFait){
+                Partie.choixBonusFait()
+                j.appliquerChoix(carte1)
+                updateUI()
+                object : CountDownTimer(1000, 1000) {
+                    override fun onTick(millisUntilFinished: Long) {}
+                    override fun onFinish() {
+                        createActionIntent(context, ActionView::class.java,carte1.getTitre())
+                    }
+                }.start()
+                isChoixFait = true
+            }
+
 
         }
         ivCarteBonus2.setOnClickListener {
-            Partie.choixBonusFait()
-            j.appliquerChoix(carte2)
-            updateUI()
-            object : CountDownTimer(1000, 1000) {
-                override fun onTick(millisUntilFinished: Long) {}
-                override fun onFinish() {
-                    createActionIntent(context, ActionView::class.java,carte2.getTitre())
-                }
-            }.start()
+            if (!isChoixFait){
+                Partie.choixBonusFait()
+                j.appliquerChoix(carte2)
+                updateUI()
+                object : CountDownTimer(1000, 1000) {
+                    override fun onTick(millisUntilFinished: Long) {}
+                    override fun onFinish() {
+                        createActionIntent(context, ActionView::class.java,carte2.getTitre())
+                    }
+                }.start()
+                isChoixFait = true
+            }
+
         }
 
 
