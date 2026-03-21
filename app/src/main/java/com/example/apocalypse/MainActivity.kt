@@ -22,6 +22,7 @@ class MainActivity : BaseActivity() {
 
     lateinit var tvNbParties: TextView
     lateinit var backgroundView : ImageView
+    lateinit var  buttonHistoire  : BlurView
 
 
     @SuppressLint("MissingInflatedId")
@@ -40,17 +41,25 @@ class MainActivity : BaseActivity() {
         //init
         buttonSurvivre = findViewById(R.id.buttonSurvivre2)
         tvNbParties = findViewById(R.id.tvNbParties)
-
+        buttonHistoire = findViewById(R.id.glassLivrePanel)
 
         buttonSurvivre.setOnClickListener {
             Partie.demarrerParti()
             createIntent(this, IntroGameView::class.java)
+        }
+
+        buttonHistoire.setOnClickListener {
+            HistoireDialog(this).show()
         }
         val glassBox = findViewById<BlurView>(R.id.glassBox)
         backgroundView = findViewById(R.id.bgImage)
         setupDynamicGlassmorphism(this,glassBox,backgroundView, 5f,153)
 
         colorizeButtonFromBackground(buttonSurvivre,backgroundView)
+
+
+
+        setupDynamicGlassmorphism(this,buttonHistoire,backgroundView,5f,153)
 
     }
 
