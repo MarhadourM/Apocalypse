@@ -80,6 +80,7 @@
         android:background="@drawable/bg_glass"
         android:clipToOutline="true"
         app:blurOverlayColor="#00000000"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSurvivre2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintStart_toStartOf="parent"

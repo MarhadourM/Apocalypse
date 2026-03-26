@@ -232,9 +232,9 @@ object Partie {
             Malus(
                 "Vous tombez nez à nez avec un animal sauvage affamé. C'était la tanière d'un chien toxique",
                 HashMap<Attribut, Int>().apply {
-                    this[Attribut.VIE] = 10
+                    this[Attribut.VIE] =6
                     this[Attribut.SATIETE] = 0
-                    this[Attribut.HYDRA] = 0
+                    this[Attribut.HYDRA] = 2
                 }
             )
         )
@@ -290,7 +290,7 @@ object Partie {
                 "Vous fouillez chaque étage mais ne trouvez rien. L'effort vous a affamé.",
                 HashMap<Attribut, Int>().apply {
                     this[Attribut.VIE] = 0
-                    this[Attribut.SATIETE] = 8
+                    this[Attribut.SATIETE] = 7
                     this[Attribut.HYDRA] = 0
                 }
             )
@@ -304,13 +304,13 @@ object Partie {
             HashMap<Attribut, Int>().apply {
                 this[Attribut.VIE] = 0
                 this[Attribut.SATIETE] = 10
-                this[Attribut.HYDRA] = 15
+                this[Attribut.HYDRA] = 10
             }
         ),
         Malus(
             "Une détonation assourdissante vous blesse et ruine vos tympans.",
             HashMap<Attribut, Int>().apply {
-                this[Attribut.VIE] = 15
+                this[Attribut.VIE] = 8
                 this[Attribut.SATIETE] = 0
                 this[Attribut.HYDRA] = 0
             }
@@ -319,7 +319,7 @@ object Partie {
 
 
         val actionVASuite4 =  Action(
-            10,
+            6,
             "Le ciel vire au noir. Un violent orage éclate, vous vous êtes trop éloignés du centre de la ville ",
             Bonus(
                 "Vous trouvez un abri en hauteur. Vous profitez de l'orage pour remplir vos réserves d'eau avant de dormir.",
@@ -355,7 +355,7 @@ object Partie {
         // ==========================================
 
         val actionHM1 = Action(
-            8,
+            7,
             "Vous arrivez devant un grand complexe. Vous tentez de franchir le grillage sécurisé.",
             Bonus(
                 "Vous passez le grillage sans encombres. L'hôpital est à vous.",
@@ -376,7 +376,7 @@ object Partie {
         )
 
         val actionHM2 = Action(
-            12,
+            8,
             "Vous forcez la porte de la salle des médicaments à la recherche de soins.",
             Bonus(
                 "Vous trouvez du matériel médical intact ",

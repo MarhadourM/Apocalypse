@@ -11,12 +11,13 @@
         android:id="@+id/background2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/background_hopital"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/background_hopital"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <eightbitlab.com.blurview.BlurView
@@ -212,8 +213,8 @@
     <!-- Conteneur Glassmorphism pour la Carte 1 -->
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/glassCard1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="195dp"
+        android:layout_height="0dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/bg_glass"

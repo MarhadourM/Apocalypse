@@ -7,7 +7,7 @@
 
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/glassMalusPanel"
-        android:layout_width="388dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_glass"
         android:clipToOutline="true"
@@ -29,8 +29,8 @@
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                app:autoSizeMaxTextSize="34dp"
-                app:autoSizeMinTextSize="12dp"
+                app:autoSizeMaxTextSize="34sp"
+                app:autoSizeMinTextSize="12sp"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

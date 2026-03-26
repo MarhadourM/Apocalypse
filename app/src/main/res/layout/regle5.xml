@@ -6,9 +6,11 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="386dp"
+        android:layout_width="0dp"
         android:layout_height="156dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/parchemin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
@@ -17,11 +19,14 @@
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="266dp"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
             android:text="A chaque début de jour vous pouvez choisir entre deux cartes bonus "
+            app:autoSizeMaxTextSize="50sp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,11 +34,15 @@
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="266dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:text="Un carte à une rareté allant de COMMUN, RARE, LEGENDAIRE "
+            app:autoSizeMaxTextSize="50sp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

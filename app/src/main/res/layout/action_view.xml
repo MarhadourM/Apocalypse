@@ -11,12 +11,13 @@
         android:id="@+id/background3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/background_placeholder"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/background_hopital"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/glassAttribut3"
@@ -143,11 +144,15 @@
 
     <TextView
         android:id="@+id/tvCible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
         android:layout_marginTop="56dp"
         android:text="Cible de l'action"
         android:textColor="#FFFFFF"
+        android:textSize="14dp"
+        app:autoSizeMaxTextSize="50sp"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,14 +160,19 @@
 
     <TextView
         android:id="@+id/tvDescriptionAction"
-        android:layout_width="364dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/parchemin"
         android:fontFamily="@font/crimson_text"
         android:text="Description Action"
         android:textAlignment="center"
         android:textSize="20sp"
+        app:autoSizeMaxTextSize="150sp"
+        app:autoSizeMinTextSize="20sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
@@ -177,57 +187,64 @@
         android:background="@drawable/bg_glass"
         android:clipToOutline="true"
         app:blurOverlayColor="#00000000"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLancerDes"
         app:layout_constraintEnd_toStartOf="@+id/tvCible"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction"
-        app:layout_constraintVertical_bias="0.0">
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="144dp"
-    android:layout_height="wrap_content"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp"
-    android:paddingStart="8dp"
-    android:paddingEnd="8dp">
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="103dp"
-        android:layout_height="116dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bonus_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction">
 
-        <TextView
-            android:id="@+id/tvModificateurBonus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/crimson_text"
-            android:gravity="center"
-            android:minHeight="50dp"
-            android:text="TextView"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingStart="8dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="103dp"
+                android:layout_height="116dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bonus_icon" />
+
+            <TextView
+                android:id="@+id/tvModificateurBonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/crimson_text"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textSize="14dp"
+                app:autoSizeMaxTextSize="500sp"
+                app:autoSizeMinTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </eightbitlab.com.blurview.BlurView>
 
 
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/glassMalusPanel"
-        android:layout_width="wrap_content"
+        android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="22dp"
         android:background="@drawable/bg_glass"
         android:clipToOutline="true"
         app:blurOverlayColor="#00000000"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLancerDes"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvCible"
         app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction">
 
@@ -259,6 +276,10 @@
                 android:minHeight="50dp"
                 android:text="TextView"
                 android:textColor="#FFFFFF"
+                android:textSize="14dp"
+                app:autoSizeMaxTextSize="50sp"
+                app:autoSizeMinTextSize="14sp"
+                app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

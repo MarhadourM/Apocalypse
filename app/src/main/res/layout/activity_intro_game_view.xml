@@ -151,7 +151,7 @@
 
     <LinearLayout
         android:id="@+id/llRegles"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
         android:orientation="vertical"
