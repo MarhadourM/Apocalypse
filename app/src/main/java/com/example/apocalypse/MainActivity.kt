@@ -1,15 +1,10 @@
 package com.example.apocalypse
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
-import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -41,7 +36,7 @@ class MainActivity : BaseActivity() {
         //init
         buttonSurvivre = findViewById(R.id.buttonSurvivre2)
         tvNbParties = findViewById(R.id.tvNbParties)
-        buttonHistoire = findViewById(R.id.glassLivrePanel)
+        buttonHistoire = findViewById(R.id.glassHistoire)
 
         buttonSurvivre.setOnClickListener {
             Partie.demarrerParti()
@@ -52,14 +47,19 @@ class MainActivity : BaseActivity() {
             HistoireDialog(this).show()
         }
         val glassBox = findViewById<BlurView>(R.id.glassBox)
+        val glassCredit = findViewById<BlurView>(R.id.glassCredit2)
         backgroundView = findViewById(R.id.bgImage)
-        setupDynamicGlassmorphism(this,glassBox,backgroundView, 5f,153)
 
+        setupDynamicGlassmorphism(this,glassBox,backgroundView, 5f,153)
+        setupDynamicGlassmorphism(this,glassCredit,backgroundView, 5f,153)
+        setupDynamicGlassmorphism(this,buttonHistoire,backgroundView,5f,153)
         colorizeButtonFromBackground(buttonSurvivre,backgroundView)
 
+        glassCredit.setOnClickListener {DialogCredits(this).show()}
 
 
-        setupDynamicGlassmorphism(this,buttonHistoire,backgroundView,5f,153)
+
+
 
     }
 

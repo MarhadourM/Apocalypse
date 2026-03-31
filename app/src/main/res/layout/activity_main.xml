@@ -22,6 +22,52 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassCredit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="171dp"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSurvivre2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glassBox">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"> <!-- Ajoutez un peu de marge autour de l'image si besoin -->
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crimson_text"
+                android:text="@string/cr_dits"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="77dp"
+                android:layout_height="64dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/info" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </eightbitlab.com.blurview.BlurView>
+
+    <eightbitlab.com.blurview.BlurView
         android:id="@+id/glassBox"
         android:layout_width="314dp"
         android:layout_height="wrap_content"
@@ -73,7 +119,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <eightbitlab.com.blurview.BlurView
-        android:id="@+id/glassLivrePanel"
+        android:id="@+id/glassHistoire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="171dp"
@@ -97,7 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/crimson_text"
-                android:text="Histoire"
+                android:text="@string/histoire"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"

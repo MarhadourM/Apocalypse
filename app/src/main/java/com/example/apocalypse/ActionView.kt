@@ -66,11 +66,13 @@ class ActionView: BaseActivity() {
         var glassAttribut  = findViewById<BlurView>(R.id.glassAttribut3)
         var bonusView = findViewById<BlurView>(R.id.glassBonusPanel)
         var malusView = findViewById<BlurView>(R.id.glassMalusPanel)
+        var glassCible  = findViewById<BlurView>(R.id.glassCiblePanel)
 
 
         setupDynamicGlassmorphism(this,glassAttribut,background,5f,153)
         setupDynamicGlassmorphism(this,bonusView,background,5f,153)
         setupDynamicGlassmorphism(this,malusView,background,5f,153)
+        setupDynamicGlassmorphism(this,glassCible,background,5f,153)
 
         colorizeButtonFromBackground(buttonLancerDes,background)
 

@@ -27,7 +27,7 @@
                 android:id="@+id/tvDescBonus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bonus"
+                android:text="@string/bonus"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:fontFamily="@font/crimson_text"
-            android:text="Votre but ? Survivre le plus longtemps possible."
+            android:text="@string/votre_but_survivre_le_plus_longtemps_possible"
             android:textAlignment="center"
             android:textSize="20sp"
             app:autoSizeMaxTextSize="50sp"

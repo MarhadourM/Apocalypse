@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="vous etes mort "
+        android:text="@string/vous_etes_mort"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"

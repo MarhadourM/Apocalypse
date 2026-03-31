@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:text="vous avez reussi à survivre"
+        android:text="@string/vous_avez_reussi_survivre"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"

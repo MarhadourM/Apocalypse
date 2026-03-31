@@ -128,7 +128,7 @@
         android:letterSpacing="0.05"
         android:paddingTop="4dp"
         android:paddingBottom="10dp"
-        android:text="Lancés les Dés"
+        android:text="@string/lanc_s_les_d_s"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -142,22 +142,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/tvCible"
-        android:layout_width="101dp"
-        android:layout_height="29dp"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/glassCiblePanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Cible de l'action"
-        android:textColor="#FFFFFF"
-        android:textSize="14dp"
-        app:autoSizeMaxTextSize="50sp"
-        app:autoSizeMinTextSize="14sp"
-        app:autoSizeTextType="uniform"
+        android:background="@drawable/bg_glass"
+        android:clipToOutline="true"
+        app:blurOverlayColor="#00000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction">
 
+        <!-- Un petit layout interne pour gérer les marges (padding) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvCible"
+                android:layout_width="101dp"
+                android:layout_height="29dp"
+                android:gravity="center"
+                android:text="@string/cible_de_l_action"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:autoSizeMaxTextSize="50sp"
+                app:autoSizeMinTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </eightbitlab.com.blurview.BlurView>
     <TextView
         android:id="@+id/tvDescriptionAction"
         android:layout_width="0dp"
@@ -182,15 +204,15 @@
         android:id="@+id/glassBonusPanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:background="@drawable/bg_glass"
         android:clipToOutline="true"
         app:blurOverlayColor="#00000000"
+
         app:layout_constraintBottom_toTopOf="@+id/buttonLancerDes"
-        app:layout_constraintEnd_toStartOf="@+id/tvCible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction">
+        app:layout_constraintTop_toBottomOf="@+id/glassCiblePanel"
+        app:layout_constraintVertical_bias="0.29000002">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -239,14 +261,13 @@
         android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="22dp"
         android:background="@drawable/bg_glass"
         android:clipToOutline="true"
         app:blurOverlayColor="#00000000"
         app:layout_constraintBottom_toTopOf="@+id/buttonLancerDes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvCible"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAction">
+        app:layout_constraintTop_toBottomOf="@+id/glassCiblePanel"
+        app:layout_constraintVertical_bias="0.3">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
